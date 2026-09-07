@@ -1,0 +1,1175 @@
+# New Game Site Fast-Build SOP v2.6
+
+## Goal
+
+Build a useful, fact-grounded, SEO-friendly, visually credible game wiki/site fast enough to capture the early search window of a newly released game, while preserving enough structure to scale into a durable wiki, database, guide site, or tool site.
+
+A successful V1 is not only “technically correct.” It must also provide enough **topic coverage, navigation discoverability, player-facing usefulness, evidence-backed visual identity, route-level media lifecycle discipline, real game recognition, and screenshot-backed human visual quality** to compete with the best sites visible during the launch window.
+
+## Core Strategy
+
+**Public Data First → Resilient Evidence Verification → Discovery Research → Competitive Coverage → Structure First → Official Visual Evidence + Route Media Lifecycle → Launch Useful Coverage Fast → Game Recognition Review → Community Refine → Patch Maintain**
+
+For very new games, keyword tools are often incomplete. Architecture should be derived from:
+
+1. official public data;
+2. Discovery Research;
+3. competitor page-family coverage;
+4. game entities and systems;
+5. player journey and friction;
+6. repeated community questions;
+7. keyword validation;
+8. Search Console feedback;
+9. patch impact.
+
+## Protected Methodology Boundaries
+
+v2.6 hardens the v2.5 workflow without replacing it.
+
+Preserve:
+
+- source/provenance discipline;
+- the single runtime Page Inventory SSOT;
+- Competitive Coverage, Minimum Wiki Coverage, Navigation Coverage, and Partial Page rules;
+- player-facing UX boundaries;
+- explicit deployment authorization and preview/production separation;
+- KISS/YAGNI/80-20 fact-layer design;
+- High Cohesion, Low Coupling, Modular, Adaptable, Stable Core / Flexible Edge;
+- human approval gates;
+- representative + risk-based QA;
+- evidence discipline and no unnecessary abstraction.
+
+Do not add:
+
+- media or layout fields to the Page Inventory;
+- media quotas;
+- screenshot requirements for every route and viewport;
+- automated legal scoring;
+- image CDN/transcoding/video pipeline requirements;
+- generic page/media/design DSLs.
+- generalized transport engines;
+- reviewer orchestration engines;
+- media DAM/CMS/database requirements.
+
+---
+
+# Step 0 — Create Project Artifacts and Record Version Provenance
+
+Create:
+
+```text
+docs/
+├── PROJECT_BRIEF.md
+├── RESEARCH_SOURCES.md
+├── KEYWORD_RESEARCH.md
+├── COMPETITOR_ANALYSIS.md
+├── SITE_STRUCTURE.md
+├── MEDIA_DECISION_TABLE.md
+├── HUMAN_VISUAL_REVIEW_EVIDENCE.md
+└── CURRENT_STATUS.md
+```
+
+Record:
+
+```text
+sop_version
+sop_repo
+sop_commit_or_tag
+starter_repo
+starter_commit_or_tag
+master_prompt_version
+project_repo
+```
+
+The implementation must have one structured runtime Page Inventory SSOT.
+
+`MEDIA_DECISION_TABLE.md` must reference Page Inventory page IDs or routes, but it is not a publication ledger.
+
+## Verification Transport Resilience Policy
+
+Verification must be evidence-based, not transport-dependent.
+
+Separate:
+
+```text
+evidence validity
+from
+transport availability
+```
+
+Required flow:
+
+```text
+Preferred read-only transport
+→ classify transport/auth/session failure
+→ approved read-only fallback
+→ preserve primary failure evidence
+→ preserve source/provenance identity
+→ verify equivalent evidence
+→ continue if evidence verifies
+```
+
+Access states:
+
+```text
+READ
+PARTIAL
+UNAVAILABLE
+TRANSPORT_BLOCKED
+AUTH_BLOCKED
+```
+
+Provenance checks may additionally record:
+
+```text
+PRIMARY_TRANSPORT_FAILED
+FALLBACK_VERIFIED
+```
+
+Use this for Git provenance verification, official source reading, and required evidence retrieval.
+
+BLOCK only when required evidence itself cannot be verified. Do not BLOCK merely because one preferred tool, reader, session, or API failed.
+
+Approved fallback must remain read-only, preserve the same source/provenance identity, and verify equivalent evidence. Do not silently downgrade official evidence to lower-authority evidence, bypass anti-bot systems, solve CAPTCHA, export cookies, or perform write actions.
+
+This is a methodology rule, not a generalized transport engine.
+
+## Reviewer Capability Preflight
+
+Before evidence-dependent independent review, establish whether the reviewer can access enough evidence to perform the review.
+
+Evidence classes include:
+
+- upstream Git refs / provenance;
+- project status artifacts;
+- execution summaries;
+- build/test evidence;
+- route/reconciliation evidence;
+- source evidence;
+- visual evidence when applicable.
+
+Independent review does not require the same tool or same transport. It requires independent access to sufficient evidence.
+
+If the reviewer cannot access required evidence because of reviewer/tool/session limitations, classify:
+
+```text
+REVIEWER CAPABILITY BLOCKED
+```
+
+Do not label:
+
+```text
+PROJECT BLOCKED
+```
+
+unless the project evidence itself is defective or cannot be verified through approved evidence channels.
+
+If evidence can be safely exposed through an approved read-only channel, expose it, rerun review, and preserve the failed review attempt in process history. Never send credentials, tokens, cookies, or secret-bearing logs to satisfy review.
+
+---
+
+# Step 1 — Validate the Opportunity
+
+Evaluate:
+
+- release timing;
+- observable player/review/community signals;
+- competitor presence;
+- depth of game systems;
+- repeat-search potential;
+- patch frequency;
+- recurring player questions.
+
+Output:
+
+- `GO`
+- `WATCH`
+- `NO-GO`
+
+Do not invent traffic, search volume, trend, or player count.
+
+---
+
+# Step 2 — Scan and Verify the Official Public Data Surface
+
+Priority sources:
+
+- official store page;
+- official website/wiki;
+- patch notes/developer announcements;
+- official/platform achievements;
+- official/platform market/trading surfaces;
+- logo/key art;
+- screenshots;
+- trailer/video;
+- official community/social channels;
+- public API/JSON/exposed data when authorized.
+
+Record evidence in `RESEARCH_SOURCES.md`.
+
+Official-source verification determines what is factually publishable.
+
+First-party visual sources also support the visual identity and media plan.
+
+If a preferred official-source reader fails, classify the failure as transport/auth/session availability before deciding whether the source evidence is unusable. An approved read-only fallback may continue the workflow when it verifies the same official source or an equivalent first-party representation.
+
+For official visual evidence, prioritize real game evidence in this order:
+
+1. official key art;
+2. Steam capsule;
+3. gameplay screenshots;
+4. in-game UI;
+5. world/map visuals;
+6. official trailers;
+7. Dev Diary imagery;
+8. concept art;
+9. publisher marketing-page design only as secondary evidence.
+
+Explicit principle:
+
+```text
+Corporate Web Color
+!=
+Game Visual Identity
+```
+
+Record evidence/status for:
+
+- palette character;
+- typography character;
+- UI motifs;
+- surface/material language;
+- iconography;
+- available media;
+- map/world language;
+- image style;
+- texture/shape language;
+- visual anti-patterns;
+- first-screen composition.
+
+Allowed status values:
+
+```text
+VERIFIED
+OBSERVED
+DERIVED
+UNAVAILABLE
+INTENTIONALLY UNUSED
+```
+
+Do not treat competitor visuals as game identity authority.
+
+---
+
+# Step 3 — Run Discovery Research
+
+### MUST
+
+- Web/SERP discovery
+- competitor discovery
+- long-tail query discovery
+
+### SHOULD when useful
+
+- YouTube
+- Steam Community / Discussions
+- Reddit
+- Discord / other public player-question surfaces
+
+Discovery helps identify:
+
+- player questions;
+- search intent;
+- page families;
+- competitor coverage;
+- content gaps;
+- wording;
+- internal-link opportunities.
+
+Discovery evidence is **not automatically factual authority**.
+
+If discovery suggests a materially new page family after approval, stop for human review.
+
+---
+
+# Step 4 — Build the Fact Layer
+
+Extract reusable facts before duplicating them across pages.
+
+Principle:
+
+**Collect once → structure once → reuse everywhere.**
+
+Use the simplest sufficient boundary.
+
+Do not introduce a database/repository/resolver/DSL unless the real project proves it necessary.
+
+---
+
+# Step 5 — Build the Game Entity Map
+
+List real game nouns/systems, for example:
+
+- heroes/classes;
+- abilities/skills;
+- gear/items/weapons;
+- worlds/maps/stages;
+- progression;
+- skill tree;
+- crafting/ritual;
+- market;
+- currencies;
+- achievements;
+- codes;
+- updates;
+- tools.
+
+Ask whether each deserves:
+
+- Hub
+- Guide
+- Database
+- Entity detail
+- Tool
+- FAQ coverage
+
+---
+
+# Step 6 — Map the Player Journey
+
+Model:
+
+```text
+First visit
+→ first hour
+→ first progression wall
+→ mid-game decisions
+→ optimization
+→ endgame/meta
+→ patch/update behavior
+```
+
+Every friction point is a page/FAQ candidate.
+
+---
+
+# Step 7 — Research Keywords
+
+Use `KEYWORD_RESEARCH_TEMPLATE.md`.
+
+**Keyword ≠ Page.**
+
+Group by intent.
+
+Keywords prioritize and name pages; they do not replace entity/player-journey architecture.
+
+---
+
+# Step 8 — Reverse-Engineer Competitors
+
+Use `COMPETITOR_ANALYSIS_TEMPLATE.md`.
+
+Competitor research must inspect:
+
+- page families;
+- navigation depth;
+- hubs;
+- detail-page scale;
+- media use;
+- FAQ use;
+- update coverage;
+- tools/databases;
+- internal linking;
+- visible freshness/source patterns.
+
+Competitor analysis must also include a representative visual/media benchmark against the strongest competitor.
+
+At minimum compare:
+
+- homepage hero;
+- guide/article hero usage;
+- representative screenshot density;
+- videos;
+- maps;
+- thumbnails;
+- galleries where relevant;
+- visual pacing;
+- semantic media matching.
+
+Required planning question:
+
+```text
+Are we materially below the strongest competitor
+in useful visual/media support?
+```
+
+If YES, Phase 1 cannot receive full visual/media planning approval without one of:
+
+- recovery plan;
+- explicit Human waiver;
+- justified product/genre reason.
+
+Do not turn this into a universal image quota.
+
+Competitor facts must still be independently verified.
+
+Competitor color palettes are not game-brand authority.
+
+Competitor visual and media observations may inform coverage, rhythm, and UX gaps, but they do not authorize copying assets, palette, layout, or identity treatment.
+
+---
+
+# Step 9 — Competitive Coverage Gate
+
+This is a **blocking planning gate**.
+
+For each meaningful page family observed from competitors, game entities, player journey, and discovery, assign one decision:
+
+```text
+COVER_NOW
+COVER_PARTIAL
+DEFER
+NOT_RELEVANT
+```
+
+For `DEFER`, document:
+
+- why;
+- whether competitors already cover it;
+- whether user/search intent is visible;
+- whether a partial page could satisfy the intent safely;
+- what evidence/data is missing;
+- the SEO/UX cost of delaying;
+- human approval status if the gap is material.
+
+Do not allow “data incomplete” as the only reason to omit a high-value family.
+
+---
+
+# Partial Page Rule
+
+**Incomplete evidence does not automatically mean the page cannot exist.**
+
+Separate:
+
+```text
+Page existence
+from
+Claim completeness
+```
+
+Examples:
+
+- Skill Tree system verified, nodes incomplete → publish system/strategy overview; defer node database.
+- Gear system verified, catalog incomplete → publish gear-system guide; defer full item database.
+- Worlds verified, detailed drops incomplete → publish world/progression overview; defer unsupported drop tables.
+
+A partial page must:
+
+- answer a real intent;
+- clearly limit itself to verified information;
+- avoid fake completeness;
+- state unknowns when useful;
+- not masquerade as a complete database.
+
+---
+
+# Step 10 — Build Site Structure
+
+Use `SITE_STRUCTURE_TEMPLATE.md`.
+
+Create:
+
+- primary navigation;
+- secondary/dropdown navigation where appropriate;
+- Topic Clusters;
+- Hub pages;
+- child pages;
+- entity patterns;
+- internal linking;
+- stable URL rules.
+
+Site Structure is planning, not publication SSOT.
+
+# Step 11 — Minimum Wiki Coverage Gate
+
+Before approving V1, explicitly review whether the game has meaningful player intent around:
+
+1. Getting Started / How to Play
+2. Core Gameplay / Progression
+3. Heroes / Characters / Classes
+4. Gear / Items / Equipment
+5. Major Game Systems
+6. Worlds / Maps / Stages
+7. Updates / Patch impact
+8. FAQ / recurring player questions
+
+Additional common families:
+
+- Skill Tree
+- Abilities
+- Achievements
+- Market
+- Codes
+- Tier/Builds
+- Tools
+- Search
+
+Not every game needs every family.
+
+But every relevant high-value family must be:
+
+```text
+covered
+partially covered
+deferred with reason
+not relevant
+```
+
+---
+
+# Step 12 — Navigation Coverage Gate
+
+The approved structure must be discoverable.
+
+Verify:
+
+- major published page families are visible in primary or secondary navigation;
+- important P0 content is not hidden only in deep internal links;
+- navigation reflects player tasks, not merely technical modules;
+- dropdown/grouped navigation is used when a simple flat list hides too much;
+- important pages are reachable within a reasonable number of clicks;
+- actual implementation must later reconcile with the approved Navigation Plan.
+
+A navigation implementation can be technically valid and still fail this gate.
+
+---
+
+# Step 13 — Create the Runtime Page Inventory
+
+Use `PAGE_INVENTORY_TEMPLATE.md`.
+
+One structured runtime SSOT controls/reconciles:
+
+- routes;
+- navigation eligibility;
+- internal links;
+- sitemap;
+- search/indexing;
+- publication/indexability state.
+
+No manual duplicate.
+
+---
+
+# Step 14 — Assign P0 / P1 / P2
+
+Use `P0_P1_P2_TEMPLATE.md`.
+
+Preserved v2.2 principle:
+
+**P1/P2 dependency does not automatically mean an entire page must remain absent.**
+
+Classify the publishable surface separately from deeper data dependencies.
+
+Example:
+
+```text
+Skill Tree Overview = P0/P1 partial page
+Exact Node Database = P1
+Best Skill Tree Build = P2
+```
+
+Never fabricate P2 content.
+
+Every public P0 route must have a media classification in `MEDIA_DECISION_TABLE.md` before the Human Planning Gate.
+
+---
+
+## Route-Level Media Lifecycle Table
+
+After Site Structure, Page Inventory, and P0/P1/P2 planning, create `MEDIA_DECISION_TABLE.md`.
+
+Every public P0 route receives exactly one media need state:
+
+```text
+HIGH PRIORITY
+RECOMMENDED
+OPTIONAL
+NO MEDIA NEEDED
+```
+
+Required fields:
+
+| Field | Purpose |
+|---|---|
+| pageId_or_route | Link to the runtime Page Inventory row. |
+| page_family | Homepage, hub, guide/article, static wiki, update, tool, FAQ, or game-specific family. |
+| media_need | HIGH PRIORITY, RECOMMENDED, OPTIONAL, or NO MEDIA NEEDED. |
+| need_rationale | Why media is or is not useful. |
+| intended_placement | Hero, gallery, inline, trailer, diagram, quick reference, or none. |
+| candidate_state | NOT FOUND, FOUND, or SEMANTICALLY VERIFIED. |
+| rights_state | VERIFIED, UNRESOLVED, HUMAN RISK ACCEPTED, or NOT REQUIRED FOR EMBED. |
+| human_decision | APPROVED, WAIVED, REVISE, BLOCK, or PENDING. |
+| integration_state | NOT INTEGRATED, INTEGRATED, or FALLBACK ONLY. |
+| visual_gate_state | PENDING, PASS, REVISE, or BLOCK. |
+| source_or_provenance | First-party, observed, original diagram, or source note. |
+| owner_or_defer_reason | Who resolves it, or why it is deferred. |
+| notes | Required for material defer/no-media exceptions, rights risk, or fallback-only media. |
+
+This table must not create routes, change indexability, control navigation, or replace the Page Inventory SSOT.
+
+Media lifecycle belongs in planning, reconciliation, and status artifacts. It must not be moved into Runtime Page Inventory.
+
+`NO MEDIA NEEDED` means:
+
+```text
+the page remains useful,
+comprehensible,
+and visually complete without media
+```
+
+It must not mean:
+
+```text
+rights unresolved
+→ therefore no media needed
+```
+
+Rights status and media need are separate decisions.
+
+If homepage media is `HIGH PRIORITY` but remains unresolved by Human Visual Review, the minimum outcome is `REVISE` unless Human explicitly approves a no-media exception.
+
+---
+
+# Step 15 — Human Planning Gate
+
+Review:
+
+- Project Brief
+- Sources
+- Keywords
+- Competitor Analysis
+- Competitive Coverage Matrix
+- Site Structure
+- Minimum Wiki Coverage
+- Navigation Plan
+- runtime Page Inventory
+- P0/P1/P2
+- Visual Identity Gate evidence
+- Official Visual Evidence
+- first-viewport game recognition intent
+- Game Recognition planning
+- competitor visual/media benchmark
+- route-level media lifecycle decisions
+- media need/candidate/rights/human decision/integration/visual states
+- no-media rationale where applicable
+- high-priority unresolved media recovery/waiver decisions
+- visual debt/defer list
+- data gaps
+- media availability
+- visual direction
+
+Materially deferred competitor/player-intent families require explicit human awareness.
+
+Materially deferred visual/media decisions also require explicit human awareness.
+
+---
+
+# Official Visual Evidence + Visual Identity Gate
+
+A real game site must not ship with an unchanged generic Starter identity.
+
+Before implementation, record evidence-backed direction in `PROJECT_BRIEF.md` and source support in `RESEARCH_SOURCES.md`.
+
+Planning should include an `Official Visual Evidence` section in `PROJECT_BRIEF.md` or another existing planning authority where practical. Do not create a mandatory standalone visual-plan document by default.
+
+The section should cover:
+
+- primary palette;
+- secondary palette;
+- environmental lighting;
+- UI/material language;
+- map/world language;
+- image style;
+- texture/shape language;
+- visual anti-patterns;
+- `VERIFIED`, `OBSERVED`, or `DERIVED` status.
+
+PASS:
+
+- visual evidence and direction are recorded;
+- assumptions are labeled;
+- implementation intent is visibly distinct from generic Starter defaults;
+- competitor imagery, palette, or layout is not treated as identity authority.
+
+CONDITIONAL PASS:
+
+- one or more dimensions are unavailable, but a coherent rights-safe fallback and visual debt list are documented and human-approved.
+
+BLOCKED:
+
+- the site claims game-specific identity from palette substitution alone;
+- competitor imitation is used as identity evidence;
+- no evidence-backed direction exists;
+- generic Starter identity remains the project identity by accident.
+
+# Game Recognition Gate
+
+Technical Visual QA is required, but it is not sufficient.
+
+Human Visual approval must explicitly evaluate:
+
+- Game Recognition;
+- Visual Identity;
+- Media Density;
+- Semantic Media Matching;
+- Responsive Visual;
+- Media Failure State.
+
+The core question:
+
+```text
+Does the rendered site immediately look like this specific game,
+not merely a technically polished generic game site?
+```
+
+Review:
+
+1. Does the site immediately look like this specific game?
+2. Are real game visual cues materially represented?
+3. Is the palette derived from the game itself rather than only the publisher website?
+4. Are high-value pages visually supported?
+5. Is useful media richness materially below the strongest competitor?
+6. Are selected images semantically matched to page topics?
+7. Is no-media an intentional exception instead of the easiest default?
+8. Does third-party media failure still look intentional rather than broken?
+
+Technical visual PASS must not override game-recognition failure.
+
+# First-Viewport Game Recognition Check
+
+Question:
+
+```text
+Would a player recognize which game this site is about without reading long prose?
+```
+
+Planning must record:
+
+- literal game identity;
+- primary first-screen player task or CTA;
+- intended media/no-media composition;
+- game-specific visual motif or rights-safe non-media identity treatment.
+
+Rendered review must inspect the homepage first viewport on desktop around 1440px and mobile around 390px.
+
+No-media is valid when relevant usable media is unavailable, intentionally unused for rights/focus reasons, or unnecessary for the route. The first screen must still be recognizable and intentionally composed.
+
+BLOCKED:
+
+- default/demo slogan or generic hero composition dominates;
+- unexplained palette or generic icons become identity;
+- missing media leaves blank, broken, or placeholder hero regions.
+
+# Game Visual Identity + Visual Richness Rule
+
+Starter structure may remain. Starter identity must not accidentally become project identity.
+
+Derive from first-party references:
+
+- light/dark balance;
+- dominant/accent hues;
+- saturation;
+- contrast;
+- atmosphere;
+- core UI colors.
+
+But palette alone is not enough.
+
+Also plan **Visual Richness**:
+
+- hero/key visual;
+- screenshots;
+- video/trailer;
+- page-family accent treatment;
+- visual cards/quick facts;
+- tables/stat blocks where relevant;
+- inline game imagery.
+
+The goal is not pixel-perfect copying. The goal is for the site to feel recognizably connected to the game.
+
+## Template Residue Audit
+
+Audit:
+
+- default/demo slogan;
+- default hero composition;
+- generic grid;
+- coordinate rails;
+- unexplained palette;
+- default typography character;
+- repeated generic card patterns;
+- generic marks/icons;
+- large disconnected flat-color regions;
+- footer treatment.
+
+Allowed statuses:
+
+```text
+REPLACED
+INTENTIONALLY RETAINED
+NEUTRAL / NON-BRANDING
+UNRESOLVED
+```
+
+`UNRESOLVED` high-impact residue blocks release.
+
+## Visual Rhythm Gate
+
+Use visual aids where they improve comprehension and scanning:
+
+- screenshots;
+- diagrams;
+- quick facts;
+- callouts;
+- structured lists;
+- tables;
+- compact reference blocks.
+
+Do not create a formula such as "every article needs three images." Text-only remains valid where appropriate, and visual aids must not introduce unsupported facts.
+
+## Whole-Page Visual Consistency Gate
+
+Review the page as one system:
+
+- header;
+- first viewport;
+- page body;
+- CTA;
+- media framing;
+- page-family treatment;
+- footer.
+
+Major regions should feel like one coherent site and game. A visibly disconnected region, broken contrast, overlap, or layout instability is a release issue.
+
+---
+
+# Media Richness Rule
+
+Core player-facing pages should not default to text-only when relevant, usable media is available.
+
+### Homepage
+
+`MUST` have relevant visual material when first-party/approved material exists.
+
+### Major P0 Guides / Hubs
+
+`SHOULD` include at least one relevant visual asset when available.
+
+Accepted examples:
+
+- official screenshot;
+- official key art/capsule;
+- official trailer embed;
+- directly observed game UI screenshot where usage is appropriate;
+- diagram derived from verified facts;
+- entity art with appropriate rights/source record.
+
+Every media asset should have:
+
+- source/provenance;
+- alt text when appropriate;
+- caption when context helps;
+- rights/usage note when necessary.
+
+Do not copy competitor imagery merely because it is convenient.
+
+## Media Lifecycle Gate
+
+Track route media lifecycle in `MEDIA_DECISION_TABLE.md`, asset/source state in `RESEARCH_SOURCES.md`, summary state in `CURRENT_STATUS.md`, and final status in Phase 4 reconciliation.
+
+States:
+
+- media need: `HIGH PRIORITY`, `RECOMMENDED`, `OPTIONAL`, `NO MEDIA NEEDED`;
+- candidate: `NOT FOUND`, `FOUND`, `SEMANTICALLY VERIFIED`;
+- rights: `VERIFIED`, `UNRESOLVED`, `HUMAN RISK ACCEPTED`, `NOT REQUIRED FOR EMBED`;
+- human decision: `APPROVED`, `WAIVED`, `REVISE`, `BLOCK`, `PENDING`;
+- integration: `NOT INTEGRATED`, `INTEGRATED`, `FALLBACK ONLY`;
+- visual gate: `PENDING`, `PASS`, `REVISE`, `BLOCK`.
+
+BLOCKED:
+
+- `HIGH PRIORITY` route has no semantically verified and integrated media and no human-approved reclassification/waiver;
+- selected media is broken, unavailable, unsourced, or rights-blocked;
+- homepage/core route is text-only despite relevant usable media;
+- `NO MEDIA NEEDED` is used to hide unresolved rights or missing sourcing instead of a positive usefulness/completeness decision;
+- unresolved media is omitted from Phase 4 or release reporting.
+
+Human-approved debt is allowed for recommended/optional media defers, unavailable media, or intentional no-media routes when the page remains useful and composed.
+
+Third-party media that may fail, delay, or be blocked must have an intentional visible fallback state where blank or failed rendering would make the page appear broken. The SOP requires the quality expectation, not a specific component implementation.
+
+Examples:
+
+- blocked iframe;
+- lazy player;
+- unavailable embed.
+
+---
+
+# Player-Facing UX Rule
+
+Internal research fields are not default player UI.
+
+Do not prominently expose internal-only metadata such as:
+
+- internal priority scores;
+- SEO search-signal labels;
+- internal confidence mechanics;
+- internal tags;
+- implementation notes;
+- editorial work instructions.
+
+Player-facing transparency may include:
+
+- Last Updated;
+- Last Verified;
+- Sources;
+- patch/version context;
+- clearly labeled uncertainty.
+
+The public page should answer the player's task first.
+
+---
+
+# Step 16 — Build V1
+
+Target:
+
+**useful coverage + reliable claims + competitive information architecture + game-consistent visual/media experience**
+
+Do not treat `15–25 pages` as a quota.
+
+A smaller launch may be acceptable, but a materially under-covered launch must be consciously approved.
+
+Implementation must follow approved visual identity, route media decisions, no-media rationales, and visual debt limits. Do not let generic Starter residue become the public identity.
+
+Site chrome assets are not page content media.
+
+Examples of site chrome:
+
+- logo;
+- favicon;
+- header brand mark;
+- footer mark.
+
+Examples of content media:
+
+- article hero;
+- screenshot;
+- gallery;
+- video poster;
+- map image.
+
+Content-media audits should evaluate page content media. Chrome asset validation should evaluate site chrome assets. The SOP owns this role distinction and quality expectation only; exact audit code belongs to the Starter.
+
+A decorative logo may use decorative treatment. A semantic logo must still be allowed to carry accessible meaning.
+
+---
+
+# Step 17 — Generate Content
+
+Use `CONTENT_PAGE_TEMPLATE.md`.
+
+Write for players, not internal researchers.
+
+Use partial-page strategy when evidence is incomplete.
+
+Use visual rhythm aids where they help the player understand the page. Do not add filler visuals or diagrams that create unsupported facts.
+
+---
+
+# Step 18 — Apply Technical SEO
+
+Use `TECHNICAL_SEO_SPEC.md`.
+
+Media SEO and delivery checks must include dimensions/aspect behavior, path validity, lazy/eager loading intent, and video poster/preload behavior where relevant.
+
+---
+
+# Step 19 — Run QA
+
+Use `QA_CHECKLIST.md`.
+
+QA now includes:
+
+- content reliability;
+- SEO;
+- competitive coverage;
+- navigation coverage;
+- visual identity;
+- visual richness;
+- media richness;
+- player-facing UX;
+- planning-to-implementation reconciliation;
+- performance;
+- deployment readiness.
+
+## Human Content / Visual Gate
+
+After implementation and content/media integration, before final release reconciliation, capture current rendered evidence in `HUMAN_VISUAL_REVIEW_EVIDENCE.md`.
+
+Minimum representative evidence:
+
+- homepage;
+- hub;
+- guide/article;
+- static wiki page;
+- update;
+- tool;
+- FAQ.
+
+If a family does not exist, record `NOT APPLICABLE` with Page Inventory evidence.
+
+Primary viewports:
+
+- desktop around 1440px;
+- mobile around 390px.
+
+Use additional narrow mobile around 360px or tablet/nav breakpoint around 768px only where materially useful.
+
+At least one homepage full-page or top/middle/bottom review is required for whole-page consistency.
+
+PASS:
+
+- screenshots are current and labeled;
+- representative families render without overlap, broken media, or blank intended regions;
+- Technical Visual QA passes;
+- Game Recognition passes;
+- Visual Identity passes;
+- Media Density passes or has approved exception;
+- Semantic Media Matching passes;
+- Responsive Visual passes;
+- Media Failure State passes;
+- human records recognition, rhythm, residue, media/no-media lifecycle state, mobile ordering, and whole-page consistency outcomes.
+
+CONDITIONAL PASS:
+
+- minor visual debt is documented;
+- current screenshots prove usability;
+- human explicitly accepts the debt.
+
+BLOCKED:
+
+- screenshot evidence is absent or stale;
+- required representative families/viewports are not covered;
+- first viewport is generic/unrecognizable;
+- technical visual QA passes but real game recognition fails;
+- useful visual/media support is materially below the strongest competitor without recovery plan, waiver, or justified product/genre reason;
+- high-priority homepage media remains unresolved without explicit no-media exception;
+- selected media is semantically mismatched to page topic;
+- third-party media failure appears blank, broken, or accidental;
+- major template residue remains unresolved;
+- whole-page inconsistency or broken media is visible.
+
+---
+
+# Step 20 — Planning-to-Implementation Reconciliation
+
+Before release compare:
+
+```text
+Approved Site Structure
+vs
+Actual routes
+
+Approved Navigation Plan
+vs
+Actual navigation
+
+Approved P0 coverage
+vs
+Actual public pages
+
+Approved Visual/Media plan
+vs
+Actual core pages
+
+Approved route media lifecycle
+vs
+Actual need/candidate/rights/human-decision/integration/visual-gate states
+
+Human Visual Review evidence
+vs
+Current rendered output
+```
+
+Unexpected shrinkage is a release issue, even if the build passes.
+
+Unresolved high-priority media, missing no-media approvals, stale screenshots, broken media, semantic media mismatches, game-recognition failures, competitor visual/media gaps, or delivery/failure-state warnings must be carried into the Release Gate.
+
+---
+
+# Step 21 — Deploy Through Explicit Approval
+
+Before external write:
+
+1. describe mutation;
+2. identify provider/project;
+3. obtain approval.
+
+After deployment:
+
+- inspect actual provider target/state;
+- verify routes/assets/canonical/robots/sitemap/responsive behavior;
+- classify Preview vs Production from evidence.
+
+Do not infer deployment state from command name.
+
+---
+
+# Step 22 — Launch
+
+Verify intended production domain and public release state.
+
+Do not equate “provider says production target” with “domain/DNS/public launch complete.”
+
+---
+
+# Step 23 — Expand From Community and Search Console
+
+Use recurring questions, impressions, long-tail discovery, and patch changes to expand/refine.
+
+Do not automatically create one page per query.
+
+---
+
+# Step 24 — Maintain After Patches
+
+Use `PATCH_MAINTENANCE_SOP.md`.
+
+Also review whether a patch:
+
+- creates a new page family;
+- changes navigation importance;
+- makes a previously partial page ready for expansion;
+- changes screenshots/video/UI enough to require media refresh.
+
+If UI/media changes materially, update `MEDIA_DECISION_TABLE.md`, refresh representative visual review evidence, and rerun targeted visual/media QA.
+
+---
+
+# Final v2.6 Principle
+
+For new-game sites:
+
+**Reliable does not have to mean small, generic, or visually unreviewed.**
+
+The correct target is:
+
+> **Broad enough to be useful and competitive, narrow enough in each claim to remain verifiable.**
+
+And visibly:
+
+> **Recognizable enough to feel like the specific game, resilient enough to verify evidence through approved channels, and disciplined enough to avoid fake media, filler visuals, broken embeds, and unapproved release shortcuts.**

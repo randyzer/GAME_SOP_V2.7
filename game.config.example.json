@@ -1,0 +1,44 @@
+{
+  "version": "2.6",
+  "game": {
+    "name": "",
+    "platform": "",
+    "releaseDate": "",
+    "officialStoreUrl": "",
+    "officialWebsite": "",
+    "officialWiki": ""
+  },
+  "site": {
+    "primaryLanguage": "en",
+    "additionalLanguages": [],
+    "domain": "",
+    "githubRepo": "",
+    "deploymentPlatform": "Vercel"
+  },
+  "provenance": {
+    "sopVersion": "2.6",
+    "sopRef": "",
+    "starterRepo": "",
+    "starterRef": "",
+    "masterPromptVersion": ""
+  },
+  "competitors": [],
+  "targets": {
+    "v1PageCount": 20,
+    "launchWindowHours": "3-5",
+    "contentStrategy": "Public Data First → Resilient Evidence Verification → Discovery Research → Competitive Coverage → Structure First → Official Visual Evidence + Route Media Lifecycle → Launch Useful Coverage Fast → Game Recognition Review → Community Refine → Patch Maintain"
+  },
+  "rules": {
+    "allowSpeculativeFacts": false,
+    "allowUnverifiedTierLists": false,
+    "preferOfficialSources": true,
+    "requireSourceTracking": true,
+    "requireCompetitiveCoverageGate": true,
+    "requireNavigationCoverageGate": true,
+    "requireMediaRichnessQa": true,
+    "requireGameRecognitionGate": true,
+    "requireReviewerCapabilityPreflight": true,
+    "requireTransportResilience": true,
+    "requireQaBeforeComplete": true
+  }
+}
