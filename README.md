@@ -1,8 +1,14 @@
-# GAME_SOP_v2.6 — New Game Wiki Production SOP
+# GAME_SOP V2.6.1 — New Game Wiki Production SOP
 
 A reusable production framework for researching, planning, building, launching, and maintaining SEO-first websites for newly released games.
 
-Version 2.6 is a production-hardening release based on the frozen GAME_SOP_v2.5 baseline. It preserves the proven v2.5 methodology while strengthening **evidence resilience, reviewer evidence-access reliability, game-recognition review, visual/media governance, and the boundary between site chrome assets and page content media**.
+This repository is the current `GAME_SOP V2.6.1` package. The current
+methodology authority is explicitly named
+`docs/NEW_GAME_SITE_SOP_v2.6.1.md`. V2.6 artifacts are historical
+provenance/baseline evidence archived under `archive/v2.6/`, not competing
+current authority.
+
+Version 2.6.1 is a packaging and hardening release based on the frozen GAME_SOP_v2.6 baseline. It preserves the proven v2.6 methodology while strengthening **D1 media contract compatibility/determinism, D2 public/internal source boundary, D3 runtime evidence contract, D4 targeted re-review closure, D5 public workflow-language QA, and D6 production-origin preflight**. D7 remains deferred.
 
 ## Core Principle
 
@@ -19,9 +25,9 @@ The goal is not merely to produce a technically correct site. The goal is to pro
 - resilient when a preferred read-only transport fails but equivalent evidence can be verified through an approved fallback;
 - maintainable after patches.
 
-## What Changed in v2.6
+## What Changed in v2.6.1
 
-The most important additions are:
+The most important V2.6.1 additions over the frozen V2.6 baseline are:
 
 1. **Verification Transport Resilience** — verification is evidence-based, not transport-dependent; failed preferred tooling must be classified and preserved, not treated as automatic evidence failure.
 2. **Reviewer Capability Preflight** — evidence-dependent independent review must first confirm the reviewer can access enough evidence to review.
@@ -63,12 +69,15 @@ Do not manually maintain a second Page Inventory with competing publication stat
 ├── README.md
 ├── CHANGELOG.md
 ├── PACKAGE_MANIFEST.json
-├── V2.6_CHANGE_PROPOSAL_V0.2.md
-├── V2.6_CHANGE_IMPLEMENTATION_REPORT.md
+├── archive/
+│   └── v2.6/
+│       ├── V2.6_CHANGE_IMPLEMENTATION_REPORT.md
+│       └── V2.6_CHANGE_PROPOSAL_V0.2.md
 ├── game.config.example.json
 ├── 新手必读.md
 └── docs/
-    ├── NEW_GAME_SITE_SOP_v2.6.md
+    ├── NEW_GAME_SITE_SOP_v2.6.1.md
+    ├── V2.6.1_SOP_IMPLEMENTATION_REPORT.md
     ├── EXECUTION_PROMPT.md
     ├── PROJECT_BRIEF_TEMPLATE.md
     ├── RESEARCH_SOURCES_TEMPLATE.md

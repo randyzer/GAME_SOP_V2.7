@@ -1,4 +1,4 @@
-# Content Page Template — v2.6
+# Content Page Template — v2.6.1
 
 ## Purpose
 
@@ -25,6 +25,8 @@ sourceConfidence: official | observed | community | mixed
 
 Internal metadata is not automatically public UI.
 
+Internal evidence metadata such as `evidenceNote`, reviewer notes, planning evidence, workflow state, and approval state is not public copy by default.
+
 ## Standard Player-Facing Structure
 
 Recommended:
@@ -50,6 +52,10 @@ Do not default to exposing:
 - internal confidence controls;
 - internal tags;
 - editorial planning instructions.
+- internal evidence notes;
+- workflow or approval state that is not meaningful to players.
+
+Public source sections should use public-safe source fields such as hostname/URL, source type, accessed date, published date when present, and neutral link text.
 
 ## GUIDE Pattern
 
@@ -127,7 +133,7 @@ Homepage: media required when relevant approved material exists, unless an inten
 
 Major P0 pages: relevant image/video/media strongly preferred when available.
 
-Route-level media need, candidate, rights, human decision, integration, and visual gate states are tracked in `MEDIA_DECISION_TABLE.md`.
+Route-level media need, candidate, rights, human decision, integration, and visual gate states are tracked in `docs/MEDIA_DECISION_TABLE.md`.
 
 `NO MEDIA NEEDED` means the page remains useful, comprehensible, and visually complete without media. It must not mean rights are unresolved.
 

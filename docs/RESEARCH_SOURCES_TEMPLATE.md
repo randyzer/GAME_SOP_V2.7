@@ -44,7 +44,7 @@ Do not treat “publicly visible” as automatic permission to copy and redistri
 
 Do not copy competitor-hosted images merely because they are easy to access.
 
-This inventory supports media/source decisions but does not replace `MEDIA_DECISION_TABLE.md` or the runtime Page Inventory SSOT.
+This inventory supports media/source decisions but does not replace `docs/MEDIA_DECISION_TABLE.md` or the runtime Page Inventory SSOT.
 
 ## Discovery — Web / SERP
 

@@ -6,7 +6,7 @@ Turn raw searches, entities, player questions, competitor evidence, and communit
 
 Keyword research prioritizes and names demand. It does not replace entity/player-journey/competitive-coverage planning.
 
-This artifact follows `NEW_GAME_SITE_SOP_v2.6.md`.
+This artifact follows `NEW_GAME_SITE_SOP_v2.6.1.md`.
 
 ## Evidence Limits
 

@@ -1,10 +1,10 @@
-# Reusable Execution Prompt — v2.6
+# Reusable Execution Prompt — v2.6.1
 
 You are a senior game SEO strategist, game-content researcher, information architect, technical SEO specialist, visual/media planner, and web developer.
 
 Before implementation, read and follow:
 
-1. `docs/NEW_GAME_SITE_SOP_v2.6.md`
+1. `docs/NEW_GAME_SITE_SOP_v2.6.1.md`
 2. `docs/SOURCE_POLICY.md`
 3. `docs/RESEARCH_SOURCES_TEMPLATE.md`
 4. `docs/KEYWORD_RESEARCH_TEMPLATE.md`
@@ -68,7 +68,7 @@ Before evidence-dependent independent/C2C review, confirm the reviewer can acces
 17. Assign P0/P1/P2 using the Partial Page Rule.
 18. Record data gaps and uncertainties.
 19. Confirm Official Visual Evidence, Game Visual Identity evidence, and first-viewport recognition intent.
-20. Create `MEDIA_DECISION_TABLE.md` for every public P0 route.
+20. Create `docs/MEDIA_DECISION_TABLE.md` for every public P0 route.
 21. Confirm media need/candidate/rights/human decision/integration/visual gate states, no-media rationales, and visual debt.
 22. Stop for human planning review.
 23. Build the simplest sufficient fact layer.
@@ -78,9 +78,10 @@ Before evidence-dependent independent/C2C review, confirm the reviewer can acces
 27. Capture screenshot-backed Human Visual Review evidence with Game Recognition review.
 28. Reconcile plan vs implementation, including route media lifecycle.
 29. Run full QA.
-30. Obtain explicit deployment approval.
-31. Inspect actual deployment state.
-32. Create post-launch maintenance plan.
+30. Close required `REVISE` items only after required fix, targeted re-review of changed evidence, `PASS`, and Human approval.
+31. Obtain explicit deployment approval.
+32. Inspect actual deployment state and final production-origin behavior.
+33. Create post-launch maintenance plan.
 
 ## Competitive Coverage Gate
 
@@ -186,7 +187,7 @@ Technical visual QA is necessary but not sufficient. Human Visual Review must ex
 
 Record usable visual/media sources.
 
-Create `MEDIA_DECISION_TABLE.md` for public P0 routes with:
+Create `docs/MEDIA_DECISION_TABLE.md` for public P0 routes with:
 
 - page ID or route;
 - page family;
@@ -222,6 +223,16 @@ Track provenance and usage constraints. Rights status and media need are separat
 Do not copy competitor media by default.
 
 Do not add media/layout fields to the runtime Page Inventory. The media table references Inventory IDs/routes only.
+
+For new SOP-aligned projects, `docs/MEDIA_DECISION_TABLE.md` is the authoritative media lifecycle artifact. Root `MEDIA_DECISION_TABLE.md` is legacy V2.6 Starter compatibility only; if both exist, readiness validation must fail closed until one authority remains.
+
+`pageId_or_route` must resolve to exactly one existing Runtime Page Inventory `pageId` or `route`. Zero matches, ambiguous matches, or multiple matches are validation errors. A leading `/` is only a parsing hint, not publication authority.
+
+Starter may project the table into narrow readiness evidence only through exact SOP-defined state combinations. The required decision order is: validate exact enums, resolve `pageId_or_route` to exactly one Runtime Page Inventory row, branch first on `media_need`, apply the ordered SOP state-combination table for that branch, and then report the first matching rule as the single readiness outcome. Unknown states or unsupported combinations are malformed. Starter must not decide rights validity, Human waiver validity, visual quality, publication state, or lifecycle meaning.
+
+For `media_need: NO MEDIA NEEDED`, use the positive no-media methodology contract first. Do not mark the row unresolved merely because `candidate_state: NOT FOUND` or `integration_state: NOT INTEGRATED` reflects that no media was selected or integrated. No-media still cannot hide unresolved rights, failed sourcing, unfinished integration, or deferred visual work.
+
+For `media_need: HIGH PRIORITY`, `RECOMMENDED`, or `OPTIONAL`, evaluate in this order: explicit Human/visual `REVISE` or `BLOCK`; Human `WAIVED` with visual `PASS`, exact candidate/rights/integration debt states, and recorded waiver/reclassification/debt explanation; Human `APPROVED` normal integrated media; pending Human/visual review; `FALLBACK ONLY` without waiver; unsupported combination. `FALLBACK ONLY` is not resolved by itself; it is resolved only when the ordered evaluation reaches the Human-owned waiver/reclassification path first.
 
 Do not create media quotas. `NO MEDIA NEEDED` means the page remains useful, comprehensible, and visually complete without media. It must not mean unresolved rights or sourcing were hidden as no-media.
 
@@ -275,6 +286,9 @@ Do not default to showing:
 - internal confidence controls
 - internal tags
 - editorial planning notes
+- internal workflow state
+- internal approval state
+- internal evidence notes such as `evidenceNote`
 
 Useful public transparency may include:
 
@@ -283,6 +297,8 @@ Useful public transparency may include:
 - Sources
 - patch context
 - known uncertainty
+
+Before release, inspect visible public text for internal workflow/process language that is not meaningful to players/users. Suspicious context includes internal priority state such as P0/P1/P2, planning evidence, Human approval, release approval, later approval, before publication, internal reviewer state, or internal gate state. Do not apply a naive keyword ban: words such as release, review, publication, patch, update, priority, and approval can be legitimate public/editorial copy when meaningful in context.
 
 ## Reliability Rules
 
@@ -320,7 +336,7 @@ Produce:
 14. data gaps
 15. Visual Identity + Visual Richness direction
 16. Media Plan
-17. `MEDIA_DECISION_TABLE.md`
+17. `docs/MEDIA_DECISION_TABLE.md`
 18. visual debt / no-media exceptions
 19. `CURRENT_STATUS.md`
 
@@ -338,5 +354,9 @@ Do not say “the site is complete” until:
 6. public P0 route media lifecycle decisions reconcile with actual output;
 7. screenshot-backed Human Visual Review passes or has accepted non-blocking debt;
 8. player-facing pages are not dominated by internal research metadata;
-9. deployment state is verified from evidence;
-10. `CURRENT_STATUS.md` reflects remaining blockers.
+9. public visible text does not leak internal workflow/process language;
+10. required `REVISE` items have required fix, targeted re-review of changed evidence, `PASS`, and Human approval before closure;
+11. intended runtime/version contract is recorded and actual build/release runtime evidence matches it or the mismatch is explicitly approved;
+12. deployment state is verified from evidence;
+13. final production-origin preflight passes for canonical, sitemap, robots sitemap reference, placeholder/example domains, custom-domain vs `vercel.app` canonical, apex/www choice, redirects, and live production behavior;
+14. `CURRENT_STATUS.md` reflects remaining blockers.

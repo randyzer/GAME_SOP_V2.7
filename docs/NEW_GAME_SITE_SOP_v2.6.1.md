@@ -1,4 +1,4 @@
-# New Game Site Fast-Build SOP v2.6
+# New Game Site Fast-Build SOP v2.6.1
 
 ## Goal
 
@@ -24,7 +24,7 @@ For very new games, keyword tools are often incomplete. Architecture should be d
 
 ## Protected Methodology Boundaries
 
-v2.6 hardens the v2.5 workflow without replacing it.
+v2.6.1 preserves the v2.6 Stable Core and adds narrow compatibility/closure hardening without replacing the workflow.
 
 Preserve:
 
@@ -83,7 +83,11 @@ project_repo
 
 The implementation must have one structured runtime Page Inventory SSOT.
 
-`MEDIA_DECISION_TABLE.md` must reference Page Inventory page IDs or routes, but it is not a publication ledger.
+For new SOP-aligned projects, the authoritative project artifact is `docs/MEDIA_DECISION_TABLE.md`.
+
+The media decision table must reference Page Inventory page IDs or routes, but it is not a publication ledger.
+
+The root `MEDIA_DECISION_TABLE.md` path is legacy V2.6 Starter compatibility only. It must not be treated as a second equal authority for new projects. If both root `MEDIA_DECISION_TABLE.md` and `docs/MEDIA_DECISION_TABLE.md` exist, the project is in duplicate-authority state and readiness validation must fail closed until one authority remains.
 
 ## Verification Transport Resilience Policy
 
@@ -582,13 +586,13 @@ Best Skill Tree Build = P2
 
 Never fabricate P2 content.
 
-Every public P0 route must have a media classification in `MEDIA_DECISION_TABLE.md` before the Human Planning Gate.
+Every public P0 route must have a media classification in `docs/MEDIA_DECISION_TABLE.md` before the Human Planning Gate.
 
 ---
 
 ## Route-Level Media Lifecycle Table
 
-After Site Structure, Page Inventory, and P0/P1/P2 planning, create `MEDIA_DECISION_TABLE.md`.
+After Site Structure, Page Inventory, and P0/P1/P2 planning, create `docs/MEDIA_DECISION_TABLE.md`.
 
 Every public P0 route receives exactly one media need state:
 
@@ -621,6 +625,79 @@ This table must not create routes, change indexability, control navigation, or r
 
 Media lifecycle belongs in planning, reconciliation, and status artifacts. It must not be moved into Runtime Page Inventory.
 
+## Starter Readiness Projection Boundary
+
+The SOP owns the full media lifecycle methodology, allowed fields/states, project artifact expectations, and Human/rights/visual decision semantics.
+
+Starter may read the media decision table, validate its structure, resolve rows against the Runtime Page Inventory, project lifecycle rows into a narrow readiness state, and report deterministic readiness evidence.
+
+Starter must not:
+
+- own rights decisions;
+- validate whether a Human waiver or reclassification is substantively correct;
+- decide visual quality;
+- become publication authority;
+- add lifecycle fields to Runtime Page Inventory;
+- invent lifecycle meanings.
+
+Starter lifecycle-to-readiness mapping must be explicit, documented, SOP-derived, exact-state-combination based, and ordered by precedence. Unknown or unsupported lifecycle states are malformed input and must fail closed; they must not be guessed through substring matching, synonym matching, state labels outside the allowed list, or free-text interpretation.
+
+Legal lifecycle states are only:
+
+- media need: `HIGH PRIORITY`, `RECOMMENDED`, `OPTIONAL`, `NO MEDIA NEEDED`;
+- candidate: `NOT FOUND`, `FOUND`, `SEMANTICALLY VERIFIED`;
+- rights: `VERIFIED`, `UNRESOLVED`, `HUMAN RISK ACCEPTED`, `NOT REQUIRED FOR EMBED`;
+- human decision: `APPROVED`, `WAIVED`, `REVISE`, `BLOCK`, `PENDING`;
+- integration: `NOT INTEGRATED`, `INTEGRATED`, `FALLBACK ONLY`;
+- visual gate: `PENDING`, `PASS`, `REVISE`, `BLOCK`.
+
+Readiness projection decision order:
+
+1. Validate exact enum values against the allowed lifecycle states.
+2. Resolve `pageId_or_route` to exactly one Runtime Page Inventory row.
+3. Branch first on `media_need`.
+4. Apply the ordered state-combination rules for that branch.
+5. Produce narrow readiness evidence. Starter must not infer undocumented combinations.
+
+Within a branch, evaluate rows in order. The first matching rule is the single projection outcome. Later rules are not evaluated for that row.
+
+`NO MEDIA NEEDED` branch:
+
+| Precedence | Exact state combination | Narrow readiness projection |
+|---|---|---|
+| 1 - conflict/revise/block | `rights_state: UNRESOLVED`, `human_decision: REVISE` or `BLOCK`, or `visual_gate_state: REVISE` or `BLOCK` | No-media conflict evidence. Conflict is not downgraded to pending. No-media cannot hide unresolved rights, failed sourcing, unfinished integration, or deferred visual work. |
+| 2 - pending Human/visual review | `human_decision: PENDING` or `visual_gate_state: PENDING` | Pending no-media review evidence. Do not classify unresolved merely because `candidate_state: NOT FOUND` or `integration_state: NOT INTEGRATED`. |
+| 3 - resolved no-media | non-empty positive `need_rationale`; `candidate_state: NOT FOUND`; `rights_state: NOT REQUIRED FOR EMBED`; `human_decision: APPROVED` or `WAIVED`; `integration_state: NOT INTEGRATED`; `visual_gate_state: PASS` | `priority: NO MEDIA NEEDED`; resolved no-media readiness. `NOT FOUND` and `NOT INTEGRATED` are no-media-compatible in this branch only. |
+| 4 - unsupported | any other exact-state combination | Unsupported/malformed lifecycle combination. |
+
+`HIGH PRIORITY`, `RECOMMENDED`, and `OPTIONAL` branch:
+
+| Precedence | Exact state combination | Narrow readiness projection |
+|---|---|---|
+| 1 - explicit Human/visual revise/block | `human_decision: REVISE` or `BLOCK`, or `visual_gate_state: REVISE` or `BLOCK` | Blocking readiness evidence. |
+| 2 - Human-approved waiver/reclassification | `human_decision: WAIVED`; `visual_gate_state: PASS`; `candidate_state: NOT FOUND` or `FOUND` or `SEMANTICALLY VERIFIED`; `rights_state: VERIFIED` or `UNRESOLVED` or `HUMAN RISK ACCEPTED` or `NOT REQUIRED FOR EMBED`; `integration_state: NOT INTEGRATED` or `INTEGRATED` or `FALLBACK ONLY`; non-empty `notes` or `owner_or_defer_reason` explaining waiver/reclassification/debt | Resolved by Human-owned waiver/reclassification evidence. Starter validates the exact allowed combination and recorded explanation; it does not judge whether the Human decision is substantively valid. |
+| 3 - normal approved integrated media | `candidate_state: SEMANTICALLY VERIFIED`; `rights_state: VERIFIED` or `HUMAN RISK ACCEPTED` or `NOT REQUIRED FOR EMBED`; `human_decision: APPROVED`; `integration_state: INTEGRATED`; `visual_gate_state: PASS` | Resolved integrated-media readiness. `HIGH PRIORITY` maps to `priority: HIGH PRIORITY`; `RECOMMENDED` and `OPTIONAL` remain non-blocking readiness categories. |
+| 4 - pending media review | `human_decision: PENDING` or `visual_gate_state: PENDING` | Pending media readiness evidence. Severity follows `media_need`. |
+| 5 - fallback-only without waiver | `integration_state: FALLBACK ONLY` | Fallback-only readiness evidence. `FALLBACK ONLY` is not automatically resolved; severity follows `media_need`. |
+| 6 - unsupported | any other exact-state combination | Unsupported/malformed lifecycle combination. |
+
+Combinations not matched by exactly one ordered rule are unsupported for Starter projection and must fail closed as malformed input until the SOP/project records a supported exact combination.
+
+Human waiver or reclassification may alter the methodology outcome only when represented by SOP-owned legal states. Starter may report the exact state combination; it must not determine whether the Human decision is substantively valid.
+
+## pageId_or_route Identity Resolution
+
+`pageId_or_route` identifies a media row only by resolving against the Runtime Page Inventory.
+
+Resolution requirements:
+
+- exactly one valid match to an existing Page Inventory `pageId` or `route` is required;
+- zero matches are a validation error;
+- ambiguous or multiple matches are a validation error;
+- the media table cannot create new page identities;
+- Runtime Page Inventory remains the publication SSOT;
+- a leading `/` may be used only as a parsing hint for route-like values, not as route authority by itself.
+
 `NO MEDIA NEEDED` means:
 
 ```text
@@ -633,6 +710,10 @@ It must not mean:
 
 ```text
 rights unresolved
+candidate missing
+integration unfinished
+visual work deferred
+we did not find media
 → therefore no media needed
 ```
 
@@ -887,7 +968,7 @@ Do not copy competitor imagery merely because it is convenient.
 
 ## Media Lifecycle Gate
 
-Track route media lifecycle in `MEDIA_DECISION_TABLE.md`, asset/source state in `RESEARCH_SOURCES.md`, summary state in `CURRENT_STATUS.md`, and final status in Phase 4 reconciliation.
+Track route media lifecycle in `docs/MEDIA_DECISION_TABLE.md`, asset/source state in `RESEARCH_SOURCES.md`, summary state in `CURRENT_STATUS.md`, and final status in Phase 4 reconciliation. Legacy root `MEDIA_DECISION_TABLE.md` may appear only for V2.6 Starter compatibility, not as a second authority.
 
 States:
 
@@ -1109,6 +1190,22 @@ Unexpected shrinkage is a release issue, even if the build passes.
 
 Unresolved high-priority media, missing no-media approvals, stale screenshots, broken media, semantic media mismatches, game-recognition failures, competitor visual/media gaps, or delivery/failure-state warnings must be carried into the Release Gate.
 
+## Targeted Re-Review Closure Rule
+
+A required `REVISE` item is not closed by the implementer's self-report.
+
+Closure requires:
+
+```text
+REVISE
+→ required fix
+→ targeted re-review of changed evidence
+→ PASS
+→ Human approval
+```
+
+Fix-author self-report may be submitted as evidence for review, but it is not closure. The targeted re-review must inspect the changed evidence before the item can move to PASS or Human approval.
+
 ---
 
 # Step 21 — Deploy Through Explicit Approval
@@ -1127,6 +1224,8 @@ After deployment:
 
 Do not infer deployment state from command name.
 
+Before claiming release/build readiness, record the intended runtime/version contract and the actual runtime used for build/release evidence. A mismatch must be resolved or explicitly approved; it must not be silently ignored. The SOP does not own a Node-specific implementation contract.
+
 ---
 
 # Step 22 — Launch
@@ -1134,6 +1233,20 @@ Do not infer deployment state from command name.
 Verify intended production domain and public release state.
 
 Do not equate “provider says production target” with “domain/DNS/public launch complete.”
+
+Final production readiness must verify:
+
+- canonical URLs use the intended production origin;
+- sitemap URLs use the intended production origin;
+- `robots.txt` sitemap reference uses the intended production origin;
+- no placeholder/example domain remains;
+- no `vercel.app` canonical remains when a custom domain is the intended production URL;
+- apex/www choice is explicit and consistent;
+- redirects are consistent with the chosen canonical host;
+- provider/deployment target alone is not proof of public launch;
+- live production behavior is inspected.
+
+Pre-adoption Starter/project templates may contain placeholder/example origins. That is acceptable before final production readiness.
 
 ---
 
@@ -1156,11 +1269,13 @@ Also review whether a patch:
 - makes a previously partial page ready for expansion;
 - changes screenshots/video/UI enough to require media refresh.
 
-If UI/media changes materially, update `MEDIA_DECISION_TABLE.md`, refresh representative visual review evidence, and rerun targeted visual/media QA.
+If UI/media changes materially, update `docs/MEDIA_DECISION_TABLE.md`, refresh representative visual review evidence, and rerun targeted visual/media QA.
+
+A lightweight production health check after launch is recommended when operational guidance is already being followed, but it is not a new mandatory methodology phase.
 
 ---
 
-# Final v2.6 Principle
+# Final v2.6.1 Principle
 
 For new-game sites:
 

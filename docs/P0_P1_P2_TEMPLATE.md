@@ -70,4 +70,4 @@ Do not fabricate P2 content.
 
 Do not use “incomplete detailed data” as the only reason to suppress a high-value page when a verified partial page can satisfy the intent.
 
-Every public P0 route must still receive a media lifecycle row in `MEDIA_DECISION_TABLE.md`. P0 status does not require media quota fulfillment, but high-priority media gaps, no-media exceptions, and rights/risk decisions must be visible before Human Planning Gate.
+Every public P0 route must still receive a media lifecycle row in `docs/MEDIA_DECISION_TABLE.md`. P0 status does not require media quota fulfillment, but high-priority media gaps, no-media exceptions, and rights/risk decisions must be visible before Human Planning Gate.

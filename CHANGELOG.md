@@ -1,5 +1,30 @@
 # Changelog
 
+## 2.6.1
+
+Packaging and SOP hardening release based on frozen `GAME_SOP_v2.6`
+provenance. The current V2.6.1 methodology authority is explicitly named
+`docs/NEW_GAME_SITE_SOP_v2.6.1.md`.
+
+### Added
+
+- D1 media contract compatibility and deterministic readiness mapping.
+- D2 public/internal source boundary.
+- D3 runtime evidence contract.
+- D4 targeted re-review closure.
+- D5 public workflow-language QA.
+- D6 production-origin preflight.
+
+### Deferred
+
+- D7 remains deferred.
+
+### Packaging
+
+- Archived the historical V2.6 implementation report under `archive/v2.6/`.
+- Archived `archive/v2.6/V2.6_CHANGE_PROPOSAL_V0.2.md` as historical
+  baseline/provenance, not current authority.
+
 ## 2.6
 
 Production-hardening release based on frozen `GAME_SOP_v2.5` provenance and the approved `V2.6_CHANGE_PROPOSAL_V0.2.md`.

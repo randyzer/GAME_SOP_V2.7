@@ -39,7 +39,7 @@ Implementations may use different exact names; do not add fields solely to satis
 - P0/P1/P2/visibility/indexability must reconcile with it.
 - Draft/private rows must not leak into navigation, sitemap, rendered HTML, or search unless explicitly enabled.
 - Do not create a second manually maintained publication ledger.
-- Media lifecycle decisions may reference `pageId` or `route` externally in `MEDIA_DECISION_TABLE.md`, but media/layout/lifecycle fields do not belong in the Inventory unless a future architecture review separately approves them.
+- Media lifecycle decisions may reference `pageId` or `route` externally in `docs/MEDIA_DECISION_TABLE.md`, but media/layout/lifecycle fields do not belong in the Inventory unless a future architecture review separately approves them.
 
 ## v2.6 Coverage Rule
 

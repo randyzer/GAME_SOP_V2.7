@@ -132,7 +132,7 @@ Prioritize real game evidence:
 
 ## Media Plan
 
-Summarize route media strategy here. Per-route public P0 media lifecycle belongs in `MEDIA_DECISION_TABLE.md`, keyed to Page Inventory page IDs or routes.
+Summarize route media strategy here. Per-route public P0 media lifecycle belongs in `docs/MEDIA_DECISION_TABLE.md`, keyed to Page Inventory page IDs or routes.
 
 - Homepage hero/key art:
 - Official trailer/video:

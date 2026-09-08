@@ -152,6 +152,28 @@ Also record lifecycle state when media may affect a public P0 route:
 
 Rights/usage notes support human review. They are not an automated legal clearance engine.
 
+## Public / Internal Source Boundary
+
+Internal evidence metadata may include:
+
+- `evidenceNote`;
+- confidence/internal reviewer notes;
+- planning evidence;
+- workflow state;
+- approval state.
+
+These fields support research, verification, review, and Human approval evidence. They are not public copy by default and should not be rendered in player-facing source components unless a Human explicitly rewrites them into public-safe language for a specific purpose.
+
+Public source rendering should use public-safe source data such as:
+
+- source hostname or URL;
+- source type;
+- accessed date;
+- published date when present;
+- neutral link text.
+
+Do not delete internal evidence metadata merely to prevent public leakage. Keep the boundary between structured internal evidence and public-facing source presentation explicit.
+
 ## AI Inference
 
 Allowed:

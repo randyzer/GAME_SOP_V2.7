@@ -15,6 +15,7 @@
 
 - canonical points to intended preferred production URL;
 - avoid staging/dev canonical.
+- pre-adoption templates may use placeholder/example origins, but final production readiness must not.
 
 ## H1
 
@@ -40,6 +41,8 @@ Schema must match visible content.
 
 Include canonical indexable pages.
 
+Final production sitemap URLs must use the intended production origin.
+
 Exclude:
 
 - noindex;
@@ -51,6 +54,8 @@ Exclude:
 ## Robots
 
 Do not accidentally block production pages or required assets.
+
+Final production `robots.txt` must reference the sitemap on the intended production origin.
 
 ## Indexability
 
@@ -77,6 +82,22 @@ Check:
 - uppercase;
 - duplicate parameters;
 - duplicate intent.
+
+## Production Canonical / Domain Preflight
+
+Before final production readiness:
+
+- canonical URLs use the intended production origin;
+- sitemap URLs use the intended production origin;
+- `robots.txt` sitemap reference uses the intended production origin;
+- no placeholder/example domain remains;
+- no `vercel.app` canonical remains when a custom domain is the intended production URL;
+- apex/www choice is explicit and consistent;
+- redirects are consistent with the chosen canonical host;
+- provider/deployment target alone is not proof of public launch;
+- live production behavior is inspected.
+
+Starter core must not guess the domain. The project/Human must provide the intended production origin and apex/www decision.
 
 ## Internal Linking
 

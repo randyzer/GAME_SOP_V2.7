@@ -1,4 +1,4 @@
-# QA Checklist — v2.6
+# QA Checklist — v2.6.1
 
 ## Purpose
 
@@ -75,6 +75,18 @@ A successful build is necessary but not sufficient.
 - [ ] No accidental noindex
 - [ ] Hreflang correct if multilingual
 
+## Production Origin Preflight
+
+- [ ] Canonical URLs use the intended production origin
+- [ ] Sitemap URLs use the intended production origin
+- [ ] `robots.txt` sitemap reference uses the intended production origin
+- [ ] No placeholder/example domain remains at final production readiness
+- [ ] No `vercel.app` canonical remains when a custom domain is the intended production URL
+- [ ] Apex/www choice is explicit and consistent
+- [ ] Redirects are consistent with the chosen canonical host
+- [ ] Provider/deployment target alone is not treated as public launch proof
+- [ ] Live production behavior is inspected before launch is claimed
+
 ## Visual Identity QA
 
 - [ ] Official Visual Evidence section exists in `PROJECT_BRIEF.md` or approved planning authority
@@ -99,8 +111,12 @@ A successful build is necessary but not sufficient.
 
 ## Media Richness QA
 
-- [ ] `MEDIA_DECISION_TABLE.md` exists for public P0 routes
+- [ ] `docs/MEDIA_DECISION_TABLE.md` exists for new SOP-aligned public P0 routes
+- [ ] Root `MEDIA_DECISION_TABLE.md`, if present, is treated only as legacy V2.6 Starter compatibility
+- [ ] Root and `docs/` media decision tables do not both exist
 - [ ] Every public P0 route has media need/candidate/rights/human decision/integration/visual gate states
+- [ ] Lifecycle states use only exact SOP-defined values; unknown values are treated as malformed
+- [ ] `pageId_or_route` resolves to exactly one Runtime Page Inventory `pageId` or `route`
 - [ ] High-priority media is semantically verified, integrated, and visually accepted or human-reclassified/waived
 - [ ] Homepage high-priority media unresolved at Human Visual Review is at least `REVISE` unless Human approves a no-media exception
 - [ ] No-media routes have intentional rationale where material
@@ -143,6 +159,16 @@ A successful build is necessary but not sufficient.
 - [ ] Internal tags/editorial notes do not dominate public UI
 - [ ] Sources/Last Verified are presented in a player-appropriate way
 - [ ] Core pages feel like a game wiki/site, not an internal research report
+- [ ] Public source rendering uses public-safe fields such as hostname/URL, source type, dates, and neutral link text
+- [ ] Internal evidence metadata such as `evidenceNote`, internal reviewer notes, planning evidence, workflow state, or approval state is not rendered by default
+
+## Public Workflow-Language QA
+
+- [ ] Visible public text was inspected for internal workflow/process language that is not meaningful to players/users
+- [ ] Internal priority state such as P0/P1/P2 is not exposed as public process status
+- [ ] Internal phrases such as planning evidence, Human approval, release approval, later approval, before publication, internal reviewer state, or internal gate state are not leaked as public copy
+- [ ] Legitimate editorial uses of release, review, publication, patch, update, priority, or approval are preserved when meaningful in context
+- [ ] No naive keyword-ban rewrite was used as a substitute for contextual review
 
 ## Planning-to-Implementation Reconciliation
 
@@ -196,8 +222,20 @@ A successful build is necessary but not sufficient.
 - [ ] Canonical uses intended production domain
 - [ ] Sitemap loads
 - [ ] Robots loads
+- [ ] Sitemap and robots sitemap reference use intended production origin
+- [ ] No placeholder/example domain remains
+- [ ] No `vercel.app` canonical remains when custom domain is intended
+- [ ] Apex/www canonical host and redirects are consistent
 - [ ] Homepage/important Hubs are indexable
 - [ ] Search Console planned/complete
+
+## Required Fix Closure QA
+
+- [ ] Each required `REVISE` item has a recorded required fix
+- [ ] Changed evidence was inspected by targeted re-review
+- [ ] Targeted re-review produced `PASS` before Human approval closed the item
+- [ ] Fix-author self-report was not treated as closure by itself
+- [ ] Failed or incomplete targeted re-review attempts remain visible in process history
 
 ## Blocking Rule
 
@@ -208,6 +246,8 @@ Launch is blocked by:
 - navigation that hides core published families;
 - widespread 404/broken mobile;
 - wrong canonical/robots/noindex;
+- placeholder/example production origin or stale `vercel.app` canonical when custom domain is intended;
+- inconsistent apex/www canonical host or redirects;
 - unchanged generic Starter identity that conflicts with the game;
 - missing or stale required screenshot evidence;
 - first viewport that is generic, unrecognizable, or has an empty/broken intended media region;
@@ -222,4 +262,6 @@ Launch is blocked by:
 - major header/body/footer/CTA/media inconsistency;
 - homepage/core experience that is materially text-only despite available approved media;
 - public pages dominated by internal research/SEO metadata;
+- public pages leaking internal workflow/process language as player-facing copy;
+- required `REVISE` item closed without targeted re-review `PASS` and Human approval;
 - material mismatch between approved Site Structure/Navigation and actual implementation.

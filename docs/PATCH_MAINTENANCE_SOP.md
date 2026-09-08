@@ -35,6 +35,8 @@ Update verification/freshness
 ↓
 Run targeted QA
 ↓
+Targeted re-review PASS for required REVISE fixes
+↓
 Republish
 ```
 
@@ -85,7 +87,7 @@ COVER_PARTIAL
 If patch changes UI, maps, characters, items, or systems shown in screenshots/video:
 
 - mark affected media for review;
-- update `MEDIA_DECISION_TABLE.md` media need/candidate/rights/human decision/integration/visual gate states if route media changes;
+- update `docs/MEDIA_DECISION_TABLE.md` media need/candidate/rights/human decision/integration/visual gate states if route media changes;
 - refresh `HUMAN_VISUAL_REVIEW_EVIDENCE.md` for affected representative pages;
 - avoid visibly stale screenshots on high-value pages.
 
@@ -105,3 +107,5 @@ Verify:
 - third-party media fallback states when embeds or players changed;
 - template residue and whole-page consistency when layout/theme changed;
 - media path, aspect, loading, poster/preload behavior when assets changed.
+
+Required `REVISE` items are closed only after the required fix is made, changed evidence receives targeted re-review, the targeted re-review records `PASS`, and Human approval closes the item. Fix-author self-report may support review but is not closure by itself.

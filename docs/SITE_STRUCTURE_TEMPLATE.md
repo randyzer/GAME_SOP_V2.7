@@ -80,7 +80,7 @@ For any important family with incomplete data:
 
 ## Media Plan by Page Family
 
-This is a family-level summary. Route-level public P0 media lifecycle belongs in `MEDIA_DECISION_TABLE.md` and must reference Page Inventory page IDs or routes without controlling publication state.
+This is a family-level summary. Route-level public P0 media lifecycle belongs in `docs/MEDIA_DECISION_TABLE.md` and must reference Page Inventory page IDs or routes without controlling publication state.
 
 | Page family | Media need | Hero/cover media | Inline screenshots | Video | Quick facts/cards | Semantic matching notes | Failure-state needs | Notes |
 |---|---|---|---|---|---|---|---|---|
@@ -129,4 +129,4 @@ Before implementation:
 - [ ] No page exists only because a competitor has it.
 - [ ] Every material competitor/player-intent family has a coverage decision.
 - [ ] Important incomplete-data families considered partial-page coverage before deferral.
-- [ ] Public P0 routes have route-level media lifecycle decisions in `MEDIA_DECISION_TABLE.md`.
+- [ ] Public P0 routes have route-level media lifecycle decisions in `docs/MEDIA_DECISION_TABLE.md`.

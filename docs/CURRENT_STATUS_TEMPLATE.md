@@ -15,6 +15,9 @@
 - Starter:
 - Starter commit/tag:
 - Master Prompt:
+- Intended runtime/version contract:
+- Actual build/release runtime evidence:
+- Runtime mismatch:
 
 ## Current Phase
 
@@ -72,6 +75,15 @@
 - Reviewer evidence-access gaps:
 - `REVIEWER CAPABILITY BLOCKED` attempts:
 
+## Required Fix Closure Status
+
+- Open `REVISE` items:
+- Required fixes completed:
+- Fix-author self-report evidence:
+- Targeted re-review evidence:
+- Targeted re-review result:
+- Human approval after targeted PASS:
+
 ## Coverage Status
 
 - Major families identified:
@@ -105,7 +117,11 @@
 - Game Recognition status:
 - Strongest-competitor visual/media benchmark:
 - Material visual/media competitor gap:
-- `MEDIA_DECISION_TABLE.md` completion:
+- `docs/MEDIA_DECISION_TABLE.md` completion:
+- Media table authority path:
+- Duplicate media table authority:
+- `pageId_or_route` resolution status:
+- Exact lifecycle state validation:
 - Homepage media / no-media state:
 - Major public P0 route media:
 - High-priority unresolved media:
@@ -135,6 +151,7 @@
 - Media richness:
 - Human visual review:
 - Player-facing UX:
+- Public workflow-language:
 - Reconciliation:
 - Performance:
 - Launch:
@@ -144,8 +161,15 @@
 - Production URL:
 - Last deploy:
 - Actual provider target:
+- Intended production origin:
+- Canonical origin:
 - Sitemap:
 - Robots:
+- Placeholder/example domain remaining:
+- `vercel.app` canonical with intended custom domain:
+- Apex/www choice:
+- Redirect consistency:
+- Live production behavior inspected:
 - Search Console:
 
 ## Next 3 Actions
