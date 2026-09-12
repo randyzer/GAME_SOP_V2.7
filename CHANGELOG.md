@@ -1,5 +1,33 @@
 # Changelog
 
+## 2.6.2
+
+Narrow SOP contract release based on frozen `GAME_SOP_v2.6.1` provenance.
+The current methodology authority is
+`docs/NEW_GAME_SITE_SOP_v2.6.2.md`.
+
+### Added
+
+- Pagefind artifact classes and Starter-owned normalization responsibility.
+- An 800,000 B ceiling for normalized contract-required Pagefind payload;
+  raw Pagefind-directory size remains diagnostic.
+- Fail-closed required-artifact and unknown-structure rules, while known
+  optional stock UI already absent remains valid.
+- The official non-final `npm run build:evidence` lifecycle, explicit evidence
+  marker semantics, Human review hard stop, and canonical final closure.
+
+### Preserved
+
+- Human ownership of Visual `PASS` and final fail-closed readiness.
+- The V2.6.1 Stable Core and all stated V2.6.2 non-goals, including deferred
+  D7.
+
+### Packaging
+
+- Renamed the current SOP authority to `docs/NEW_GAME_SITE_SOP_v2.6.2.md`;
+  prior SOP content remains available through Git history.
+- Archived the V2.6.1 implementation report under `archive/v2.6.1/`.
+
 ## 2.6.1
 
 Packaging and SOP hardening release based on frozen `GAME_SOP_v2.6`

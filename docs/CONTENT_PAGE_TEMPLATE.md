@@ -1,4 +1,4 @@
-# Content Page Template — v2.6.1
+# Content Page Template — v2.6.2
 
 ## Purpose
 

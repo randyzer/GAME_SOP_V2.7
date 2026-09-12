@@ -1,4 +1,4 @@
-# New Game Site Fast-Build SOP v2.6.1
+# New Game Site Fast-Build SOP v2.6.2
 
 ## Goal
 
@@ -24,7 +24,7 @@ For very new games, keyword tools are often incomplete. Architecture should be d
 
 ## Protected Methodology Boundaries
 
-v2.6.1 preserves the v2.6 Stable Core and adds narrow compatibility/closure hardening without replacing the workflow.
+v2.6.2 preserves the v2.6.1 Stable Core and adds narrow Pagefind payload and fresh visual evidence-generation contracts without replacing the workflow.
 
 Preserve:
 
@@ -1077,6 +1077,22 @@ Use `TECHNICAL_SEO_SPEC.md`.
 
 Media SEO and delivery checks must include dimensions/aspect behavior, path validity, lazy/eager loading intent, and video poster/preload behavior where relevant.
 
+## Pagefind Normalized Artifact and Budget Contract
+
+Pagefind output contains different semantic artifact classes:
+
+- required runtime/index artifacts;
+- known optional/unconsumed vendor UI artifacts;
+- unknown or unsupported artifact structure.
+
+The release budget applies to the **normalized contract-required Pagefind payload**, not the raw vendor output directory. The V2.6.2 ceiling remains **800,000 B**. This is a conservative compatibility threshold for required payload, not a universal scientific capacity limit. The raw Pagefind-directory total remains useful diagnostic evidence, but it is not the release-budget object.
+
+Required runtime/index artifacts remain mandatory. A missing required artifact fails closed.
+
+Known optional vendor UI artifacts may be removed only after deterministic Starter-owned verification proves that they are not required or referenced. Known optional stock UI already absent is valid and is not a failure by itself. If known optional UI is present and reference safety cannot be established, fail closed. Unknown or unsupported Pagefind artifact structures, layouts, or vendor contracts also fail closed pending explicit contract review.
+
+Pagefind vendor artifact mechanics, classification, normalization, and reference-safety verification are Starter-owned. Game projects must not need project-local cleanup adapters or knowledge of vendor filenames. The project edge continues to own locales, content, search configuration, and normal project data.
+
 ---
 
 # Step 19 — Run QA
@@ -1097,9 +1113,38 @@ QA now includes:
 - performance;
 - deployment readiness.
 
+## Fresh Visual Evidence-Generation Lifecycle
+
+The required lifecycle is:
+
+```text
+integration
+→ fresh evidence generation
+→ Human Visual Gate
+→ final validation / reconciliation / build
+```
+
+Run the official evidence command only to create fresh rendered output for Human review:
+
+```text
+npm run build:evidence
+```
+
+An evidence build is explicitly **NOT FINAL**. It cannot close a release, cannot be reported as canonical build `PASS`, and cannot substitute for `npm run build` or any other final gate.
+
+Evidence generation may tolerate only the exact contract-valid Human/visual `PENDING` readiness projection needed to render fresh review evidence. `PENDING` never means valid for final release and does not constitute approval. `HIGH PRIORITY` plus unresolved/pending final readiness remains blocking for final closure.
+
+Evidence generation is not a generic validation bypass. `REVISE`, `BLOCK`, malformed authority or data, unsupported lifecycle combinations, unknown enums, invalid or ambiguous Inventory identity, missing required assets or content, unknown Pagefind structures, and other deterministic correctness errors remain blocking.
+
+Evidence generation must not mutate lifecycle fields, auto-set `PASS`, inherit a historical `PASS`, or convert `PENDING` into approval. After fresh evidence is generated, stop for Human review.
+
+Evidence output carries the machine-readable marker `dist/EVIDENCE_BUILD_NOT_FINAL.json`. The marker is build metadata only: it is not publication authority, media lifecycle authority, or Human approval. It identifies the output as non-final. Canonical final output must not retain the evidence marker.
+
 ## Human Content / Visual Gate
 
 After implementation and content/media integration, before final release reconciliation, capture current rendered evidence in `HUMAN_VISUAL_REVIEW_EVIDENCE.md`.
+
+Human owns Visual `PASS`. Evidence-generation success does not alter or replace this authority.
 
 Minimum representative evidence:
 
@@ -1154,8 +1199,6 @@ BLOCKED:
 - major template residue remains unresolved;
 - whole-page inconsistency or broken media is visible.
 
----
-
 # Step 20 — Planning-to-Implementation Reconciliation
 
 Before release compare:
@@ -1205,6 +1248,17 @@ REVISE
 ```
 
 Fix-author self-report may be submitted as evidence for review, but it is not closure. The targeted re-review must inspect the changed evidence before the item can move to PASS or Human approval.
+
+After Human lifecycle approval and final reconciliation, run the canonical closing sequence:
+
+```text
+npm test
+npm run validate
+npm run check
+npm run build
+```
+
+Each command remains a final gate. Canonical `npm run build` requires fail-closed final validation, and evidence-build success must not substitute for any command in this sequence.
 
 ---
 
@@ -1275,7 +1329,7 @@ A lightweight production health check after launch is recommended when operation
 
 ---
 
-# Final v2.6.1 Principle
+# Final v2.6.2 Principle
 
 For new-game sites:
 

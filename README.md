@@ -1,14 +1,15 @@
-# GAME_SOP V2.6.1 — New Game Wiki Production SOP
+# GAME_SOP V2.6.2 — New Game Wiki Production SOP
 
 A reusable production framework for researching, planning, building, launching, and maintaining SEO-first websites for newly released games.
 
-This repository is the current `GAME_SOP V2.6.1` package. The current
+This repository is the current `GAME_SOP V2.6.2` package. The current
 methodology authority is explicitly named
-`docs/NEW_GAME_SITE_SOP_v2.6.1.md`. V2.6 artifacts are historical
-provenance/baseline evidence archived under `archive/v2.6/`, not competing
-current authority.
+`docs/NEW_GAME_SITE_SOP_v2.6.2.md`. V2.6.1 implementation evidence is
+historical provenance archived under `archive/v2.6.1/`; the prior SOP remains
+available through Git history. V2.6 artifacts remain under `archive/v2.6/`.
+None of these historical materials competes with the current authority.
 
-Version 2.6.1 is a packaging and hardening release based on the frozen GAME_SOP_v2.6 baseline. It preserves the proven v2.6 methodology while strengthening **D1 media contract compatibility/determinism, D2 public/internal source boundary, D3 runtime evidence contract, D4 targeted re-review closure, D5 public workflow-language QA, and D6 production-origin preflight**. D7 remains deferred.
+Version 2.6.2 is a narrow SOP contract release based on the frozen GAME_SOP_v2.6.1 baseline. It preserves the proven methodology while defining **normalized contract-required Pagefind payload semantics** and an explicit **non-final fresh visual evidence-generation lifecycle**. Human Visual `PASS` and final fail-closed closure remain unchanged; D7 remains deferred.
 
 ## Core Principle
 
@@ -25,20 +26,14 @@ The goal is not merely to produce a technically correct site. The goal is to pro
 - resilient when a preferred read-only transport fails but equivalent evidence can be verified through an approved fallback;
 - maintainable after patches.
 
-## What Changed in v2.6.1
+## What Changed in v2.6.2
 
-The most important V2.6.1 additions over the frozen V2.6 baseline are:
+The V2.6.2 additions over the frozen V2.6.1 baseline are:
 
-1. **Verification Transport Resilience** — verification is evidence-based, not transport-dependent; failed preferred tooling must be classified and preserved, not treated as automatic evidence failure.
-2. **Reviewer Capability Preflight** — evidence-dependent independent review must first confirm the reviewer can access enough evidence to review.
-3. **Game Recognition Gate** — Human Visual Review must explicitly assess whether the final site is recognizably about the specific game.
-4. **Official Visual Evidence Priority** — visual planning prioritizes real game evidence such as key art, Steam capsules, screenshots, in-game UI, map/world visuals, trailers, dev diary imagery, and concept art.
-5. **Competitor Visual & Media Benchmark** — competitor analysis must compare useful visual/media support against the strongest competitor and surface material gaps.
-6. **Complete Media Lifecycle** — media planning tracks need, candidate, rights/risk decision, human decision, integration, and visual gate status outside the Runtime Page Inventory.
-7. **Positive `NO MEDIA NEEDED` Definition** — no-media means the page remains useful, comprehensible, and visually complete without media; it does not hide unresolved rights.
-8. **Third-party Media Failure Quality** — embeds and lazy media that can fail must have intentional visible fallback states where blank output would look broken.
-9. **Site Chrome Clarification** — logos, favicons, header marks, and footer marks are site chrome assets, not page content media.
-10. **Protected Methodology Boundaries** — KISS, YAGNI, 80/20, Page Inventory SSOT, human approval gates, representative/risk-based QA, and no unnecessary abstraction remain intact.
+1. **Pagefind Payload Contract** — the 800,000 B release ceiling applies to normalized contract-required payload, while the raw vendor directory remains diagnostic.
+2. **Fail-Closed Artifact Ownership** — Starter owns deterministic Pagefind classification and normalization; optional stock UI already absent is valid, while missing required artifacts and unknown structures block.
+3. **Fresh Evidence Build** — `npm run build:evidence` creates explicitly non-final rendered output for Human review without mutating lifecycle authority.
+4. **Final Closure Separation** — Human Visual `PASS` remains Human-owned, and evidence output never substitutes for canonical final validation and build.
 
 ## Required Project Artifacts
 
@@ -70,14 +65,15 @@ Do not manually maintain a second Page Inventory with competing publication stat
 ├── CHANGELOG.md
 ├── PACKAGE_MANIFEST.json
 ├── archive/
+│   ├── v2.6.1/
+│   │   └── V2.6.1_SOP_IMPLEMENTATION_REPORT.md
 │   └── v2.6/
 │       ├── V2.6_CHANGE_IMPLEMENTATION_REPORT.md
 │       └── V2.6_CHANGE_PROPOSAL_V0.2.md
 ├── game.config.example.json
 ├── 新手必读.md
 └── docs/
-    ├── NEW_GAME_SITE_SOP_v2.6.1.md
-    ├── V2.6.1_SOP_IMPLEMENTATION_REPORT.md
+    ├── NEW_GAME_SITE_SOP_v2.6.2.md
     ├── EXECUTION_PROMPT.md
     ├── PROJECT_BRIEF_TEMPLATE.md
     ├── RESEARCH_SOURCES_TEMPLATE.md

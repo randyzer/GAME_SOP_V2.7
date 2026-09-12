@@ -9,12 +9,17 @@ Use representative evidence, not every route across every viewport.
 ## Build / Evidence Context
 
 - Project:
+- Evidence command: `npm run build:evidence`
+- Evidence identity: `NOT FINAL`
+- Evidence marker verified: `dist/EVIDENCE_BUILD_NOT_FINAL.json`
 - Build URL or local preview:
 - Commit/ref if available:
 - Review date:
 - Reviewer:
 - Screenshot folder:
 - Page Inventory source:
+
+Evidence-build success creates reviewable output only. It is not canonical build `PASS`, publication authority, media lifecycle authority, or Human approval. It must not mutate lifecycle state. Human review is required before final closure.
 
 ## Representative Coverage
 
@@ -108,3 +113,7 @@ Required questions:
 - Accepted visual debt:
 - Release blockers:
 - Required follow-up:
+- Human Visual `PASS` recorded by:
+- Final closure authorized: YES / NO
+
+After Human lifecycle approval and final reconciliation, run the canonical closing sequence: `npm test`, `npm run validate`, `npm run check`, then `npm run build`. Confirm canonical final output does not retain `dist/EVIDENCE_BUILD_NOT_FINAL.json`.

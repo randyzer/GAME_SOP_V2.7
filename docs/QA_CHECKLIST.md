@@ -1,4 +1,4 @@
-# QA Checklist — v2.6.1
+# QA Checklist — v2.6.2
 
 ## Purpose
 
@@ -136,6 +136,11 @@ A successful build is necessary but not sufficient.
 ## Human Visual Review QA
 
 - [ ] `HUMAN_VISUAL_REVIEW_EVIDENCE.md` exists
+- [ ] Fresh review output was generated with `npm run build:evidence`
+- [ ] Evidence output is labeled `NOT FINAL` and contains `dist/EVIDENCE_BUILD_NOT_FINAL.json`
+- [ ] Evidence-build success is not reported as canonical final build `PASS`
+- [ ] Evidence generation did not mutate lifecycle state, infer Human approval, inherit historical `PASS`, or convert `PENDING` into approval
+- [ ] Only an exact contract-valid Human/visual `PENDING` projection was tolerated; `REVISE`, `BLOCK`, malformed/unsupported state, and deterministic correctness errors remained blocking
 - [ ] Screenshots are current and labeled
 - [ ] Homepage desktop around 1440px reviewed
 - [ ] Homepage mobile around 390px reviewed
@@ -188,6 +193,18 @@ A successful build is necessary but not sufficient.
 - [ ] Draft/private content does not leak
 - [ ] Navigation/sitemap/search reconcile with Inventory
 
+## Pagefind Artifact and Budget QA
+
+- [ ] Release size is measured against the normalized contract-required Pagefind payload, not the raw vendor directory
+- [ ] Normalized contract-required Pagefind payload is no more than 800,000 B
+- [ ] Raw Pagefind-directory total is recorded only as diagnostic evidence
+- [ ] Required runtime/index artifacts are present
+- [ ] Known optional stock UI already absent is accepted and is not treated as a failure by itself
+- [ ] Any removed optional vendor UI was deterministically proven unrequired and unreferenced by Starter-owned verification
+- [ ] Present optional UI with unproven reference safety fails closed
+- [ ] Unknown/unsupported Pagefind structure or vendor contract fails closed
+- [ ] No project-local Pagefind cleanup adapter or vendor-filename knowledge is required
+
 ## Site QA
 
 - [ ] Main navigation works
@@ -216,6 +233,13 @@ A successful build is necessary but not sufficient.
 - [ ] Core pages load acceptably on mobile
 
 ## Launch QA
+
+- [ ] After Human lifecycle approval and final reconciliation, `npm test` passes
+- [ ] After Human lifecycle approval and final reconciliation, `npm run validate` passes
+- [ ] After Human lifecycle approval and final reconciliation, `npm run check` passes
+- [ ] Canonical `npm run build` passes final fail-closed validation
+- [ ] Canonical final output does not contain `dist/EVIDENCE_BUILD_NOT_FINAL.json`
+- [ ] Evidence-build success was not substituted for any final gate
 
 - [ ] Deployment succeeded
 - [ ] Actual deployment target/state verified
@@ -264,4 +288,7 @@ Launch is blocked by:
 - public pages dominated by internal research/SEO metadata;
 - public pages leaking internal workflow/process language as player-facing copy;
 - required `REVISE` item closed without targeted re-review `PASS` and Human approval;
+- missing required Pagefind artifacts, unknown/unsupported Pagefind structure, or unproven optional-artifact reference safety;
+- normalized contract-required Pagefind payload above 800,000 B;
+- evidence output treated as final, evidence marker retained in canonical output, or Human Visual `PASS` inferred by automation;
 - material mismatch between approved Site Structure/Navigation and actual implementation.

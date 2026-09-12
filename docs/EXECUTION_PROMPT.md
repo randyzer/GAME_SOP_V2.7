@@ -1,10 +1,10 @@
-# Reusable Execution Prompt — v2.6.1
+# Reusable Execution Prompt — v2.6.2
 
 You are a senior game SEO strategist, game-content researcher, information architect, technical SEO specialist, visual/media planner, and web developer.
 
 Before implementation, read and follow:
 
-1. `docs/NEW_GAME_SITE_SOP_v2.6.1.md`
+1. `docs/NEW_GAME_SITE_SOP_v2.6.2.md`
 2. `docs/SOURCE_POLICY.md`
 3. `docs/RESEARCH_SOURCES_TEMPLATE.md`
 4. `docs/KEYWORD_RESEARCH_TEMPLATE.md`
@@ -240,9 +240,25 @@ If homepage media is `HIGH PRIORITY` but unresolved at Human Visual Review, the 
 
 Third-party media that can fail, delay, or be blocked must have an intentional visible fallback where blank output would look broken.
 
+## Pagefind Release Contract
+
+Treat Pagefind output by semantic class: required runtime/index artifacts, known optional/unconsumed vendor UI artifacts, and unknown/unsupported structures. Apply the 800,000 B release ceiling only to the normalized contract-required Pagefind payload; record the raw Pagefind-directory total as diagnostic evidence.
+
+Starter owns vendor classification, normalization, and reference-safety verification. Game projects must not add project-local cleanup adapters or depend on vendor filenames. Known optional stock UI already absent is valid. Known optional UI may be removed only after deterministic proof that it is unreferenced. Missing required artifacts, an unknown/unsupported structure, or inability to establish reference safety must fail closed.
+
+## Fresh Evidence Generation
+
+After integration, use `npm run build:evidence` only when fresh rendered output is required for Human review. This evidence build is `NOT FINAL`; it may tolerate only an exact contract-valid Human/visual `PENDING` readiness projection and must never be reported as canonical build `PASS`.
+
+The evidence path must not bypass `REVISE`, `BLOCK`, malformed or unsupported lifecycle data, unknown enums, invalid/ambiguous Inventory identity, missing required assets/content, or any other deterministic correctness error. It must not mutate lifecycle fields, auto-set `PASS`, inherit historical approval, or convert `PENDING` into approval.
+
+Record `dist/EVIDENCE_BUILD_NOT_FINAL.json` as non-final build metadata only, never as publication, lifecycle, or Human authority. Stop after generation for Human Visual review. Canonical final output must not retain the marker.
+
 ## Human Content / Visual Gate
 
 Before final release reconciliation, capture `HUMAN_VISUAL_REVIEW_EVIDENCE.md`.
+
+Human owns Visual `PASS`. After Human lifecycle approval and final reconciliation, run `npm test`, `npm run validate`, `npm run check`, and `npm run build` as the canonical fail-closed closing sequence. Evidence-build success substitutes for none of these gates.
 
 Review representative families or mark them `NOT APPLICABLE` with Page Inventory evidence:
 

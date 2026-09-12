@@ -1,4 +1,4 @@
-# Media Decision Table — v2.6.1
+# Media Decision Table — v2.6.2
 
 ## Purpose
 
