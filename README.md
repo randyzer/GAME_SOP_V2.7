@@ -1,15 +1,15 @@
-# GAME_SOP V2.6.2 — New Game Wiki Production SOP
+# GAME_SOP V2.6.3 — New Game Wiki Production SOP
 
 A reusable production framework for researching, planning, building, launching, and maintaining SEO-first websites for newly released games.
 
-This repository is the current `GAME_SOP V2.6.2` package. The current
+This repository is the current implementation-stage `GAME_SOP V2.6.3` package. The current
 methodology authority is explicitly named
-`docs/NEW_GAME_SITE_SOP_v2.6.2.md`. V2.6.1 implementation evidence is
-historical provenance archived under `archive/v2.6.1/`; the prior SOP remains
-available through Git history. V2.6 artifacts remain under `archive/v2.6/`.
+`docs/NEW_GAME_SITE_SOP_v2.6.3.md`. V2.6.2 remains the frozen source baseline
+and its prior authority remains available through Git history. V2.6.1 implementation evidence is
+historical provenance archived under `archive/v2.6.1/`; V2.6 artifacts remain under `archive/v2.6/`.
 None of these historical materials competes with the current authority.
 
-Version 2.6.2 is a narrow SOP contract release based on the frozen GAME_SOP_v2.6.1 baseline. It preserves the proven methodology while defining **normalized contract-required Pagefind payload semantics** and an explicit **non-final fresh visual evidence-generation lifecycle**. Human Visual `PASS` and final fail-closed closure remain unchanged; D7 remains deferred.
+Version 2.6.3 is a bounded SOP implementation based on the frozen GAME_SOP_v2.6.2 baseline. It preserves the proven methodology while adding a **provider-neutral monetization and semantic ad-placement contract**, layered layout diagnostics, precise requested/rendered/viewable evidence terminology, and a lightweight conditional Human Ads Review inside the existing Human lifecycle. It does not add Starter mechanics, a provider framework, an ads lifecycle state machine, or runtime analytics.
 
 ## Core Principle
 
@@ -26,14 +26,15 @@ The goal is not merely to produce a technically correct site. The goal is to pro
 - resilient when a preferred read-only transport fails but equivalent evidence can be verified through an approved fallback;
 - maintainable after patches.
 
-## What Changed in v2.6.2
+## What Changed in v2.6.3
 
-The V2.6.2 additions over the frozen V2.6.1 baseline are:
+The V2.6.3 additions over the frozen V2.6.2 baseline are:
 
-1. **Pagefind Payload Contract** — the 800,000 B release ceiling applies to normalized contract-required payload, while the raw vendor directory remains diagnostic.
-2. **Fail-Closed Artifact Ownership** — Starter owns deterministic Pagefind classification and normalization; optional stock UI already absent is valid, while missing required artifacts and unknown structures block.
-3. **Fresh Evidence Build** — `npm run build:evidence` creates explicitly non-final rendered output for Human review without mutating lifecycle authority.
-4. **Final Closure Separation** — Human Visual `PASS` remains Human-owned, and evidence output never substitutes for canonical final validation and build.
+1. **Provider/Placement Separation** — provider-specific bootstrap and public slot identity remain separate from semantic page composition.
+2. **Zero-Output and Multiplicity Safety** — disabled or unconfigured placements leave no ad DOM, space, script, or request; slot/key/script reuse requires provider/project evidence.
+3. **Semantic Placement and Layout Safety** — stable content anchors and earlier homepage primary placement are soft guidance; known dimensions support responsive reservation without universal blank space.
+4. **Evidence and Diagnostics** — requested, rendered, and viewable are distinct claims, and blank/dark regions are diagnosed through DOM/layout layers before provider attribution.
+5. **Capability-Aware Human Review** — automation failure is not production-delivery proof; enabled monetization receives a lightweight Human Ads Review within the existing review/release methodology.
 
 ## Required Project Artifacts
 
@@ -73,7 +74,7 @@ Do not manually maintain a second Page Inventory with competing publication stat
 ├── game.config.example.json
 ├── 新手必读.md
 └── docs/
-    ├── NEW_GAME_SITE_SOP_v2.6.2.md
+    ├── NEW_GAME_SITE_SOP_v2.6.3.md
     ├── EXECUTION_PROMPT.md
     ├── PROJECT_BRIEF_TEMPLATE.md
     ├── RESEARCH_SOURCES_TEMPLATE.md
@@ -116,6 +117,8 @@ RUNTIME PAGE INVENTORY + P0/P1/P2
     ↓
 OFFICIAL VISUAL EVIDENCE + ROUTE MEDIA LIFECYCLE
     ↓
+MONETIZATION DECISION + SEMANTIC PLACEMENT INTENT (WHEN APPLICABLE)
+    ↓
 HUMAN PLANNING APPROVAL
     ↓
 FACT LAYER
@@ -124,7 +127,7 @@ CONTENT + MEDIA IMPLEMENTATION
     ↓
 TECHNICAL SEO
     ↓
-SCREENSHOT-BACKED HUMAN VISUAL REVIEW + GAME RECOGNITION GATE
+SCREENSHOT-BACKED HUMAN VISUAL REVIEW + GAME RECOGNITION GATE + CONDITIONAL HUMAN ADS REVIEW
     ↓
 PLAYER-FACING UX + VISUAL + MEDIA + COVERAGE QA + RECONCILIATION
     ↓
@@ -135,7 +138,7 @@ LAUNCH
 PATCH / SEARCH CONSOLE / COMMUNITY MAINTENANCE
 ```
 
-## Three Important v2.6 Rules
+## Four Important v2.6 Rules
 
 ### 1. Incomplete evidence does not automatically cancel a page
 
@@ -194,6 +197,14 @@ A site may build successfully and still be unacceptable if:
 - third-party media failure states look blank or broken;
 - internal SEO/research metadata dominates the public UI.
 
+### 4. Ad code is not proof of ad delivery or viewability
+
+```text
+AD CODE EXISTS != AD IS RENDERED != AD IS VIEWABLE
+```
+
+When monetization is disabled or unconfigured, the correct output is no ad wrapper, provider container, reserved space, provider script, or provider request. When enabled, semantic placement stays separate from provider specifics, and provider/environment failures in automation are handed to ordinary-browser review when the delivery claim matters.
+
 ## Reliability Rules
 
 Always distinguish:
@@ -224,6 +235,7 @@ Never fabricate:
 5. Build Site Structure and a single runtime Page Inventory.
 6. Run the Minimum Wiki Coverage and Navigation Coverage gates.
 7. Derive Official Visual Evidence, Game Recognition intent, and route media lifecycle decisions.
-8. Obtain human planning approval.
-9. Implement only verified claims; use partial pages and intentional no-media paths when useful and justified.
-10. Capture representative rendered screenshots and do not declare V1 complete until `QA_CHECKLIST.md` passes the Game Recognition Gate and media/failure-state checks.
+8. Decide whether monetization is disabled, deferred, or enabled; if enabled, record semantic placement intent, provider/public-private boundary, multiplicity evidence, and locale exceptions.
+9. Obtain human planning approval.
+10. Implement only verified claims; use partial pages and intentional no-media paths when useful and justified.
+11. Capture representative rendered screenshots and do not declare V1 complete until `QA_CHECKLIST.md` passes the Game Recognition Gate, media/failure-state checks, and conditional Human Ads Review.

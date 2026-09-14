@@ -1,10 +1,10 @@
-# Reusable Execution Prompt — v2.6.2
+# Reusable Execution Prompt — v2.6.3
 
 You are a senior game SEO strategist, game-content researcher, information architect, technical SEO specialist, visual/media planner, and web developer.
 
 Before implementation, read and follow:
 
-1. `docs/NEW_GAME_SITE_SOP_v2.6.2.md`
+1. `docs/NEW_GAME_SITE_SOP_v2.6.3.md`
 2. `docs/SOURCE_POLICY.md`
 3. `docs/RESEARCH_SOURCES_TEMPLATE.md`
 4. `docs/KEYWORD_RESEARCH_TEMPLATE.md`
@@ -47,6 +47,12 @@ If a preferred read-only transport fails, do not treat that as automatic evidenc
 
 Before evidence-dependent independent/C2C review, confirm the reviewer can access the evidence classes required for the review. If reviewer access is insufficient, classify `REVIEWER CAPABILITY BLOCKED`, preserve the attempt, expose safe read-only evidence if possible, and rerun review. Do not label the project blocked unless the project evidence itself is defective or unverifiable.
 
+## Monetization Decision and Verification
+
+Before implementation, record whether monetization is `DISABLED`, `DEFERRED`, or `ENABLED`. Disabled or deferred/unconfigured placements must produce no ad wrapper, provider container, reserved space, provider script, or request. If enabled, record semantic placement intent, provider/public-private configuration boundary, slot/key/script multiplicity evidence, and any locale-specific exception. Keep provider mechanics separate from page placement and outside Runtime Page Inventory and media lifecycle authority.
+
+During QA, diagnose blank/dark regions through slot, provider-container, wrapper, CSS, parent-layout, then provider/environment layers. Record `requested`, `rendered`, and `viewable` separately. Automation failure is not production-delivery proof; use `PROVIDER/ENVIRONMENT CHECK REQUIRED` and, when ordinary-browser evidence is material, `HUMAN_BROWSER_CHECK_REQUIRED`. Run Human Ads Review inside the existing Human Visual/Release evidence when monetization is enabled.
+
 ## Required Workflow
 
 1. Validate opportunity.
@@ -70,18 +76,19 @@ Before evidence-dependent independent/C2C review, confirm the reviewer can acces
 19. Confirm Official Visual Evidence, Game Visual Identity evidence, and first-viewport recognition intent.
 20. Create `docs/MEDIA_DECISION_TABLE.md` for every public P0 route.
 21. Confirm media need/candidate/rights/human decision/integration/visual gate states, no-media rationales, and visual debt.
-22. Stop for human planning review.
-23. Build the simplest sufficient fact layer.
-24. Draft/implement approved pages and approved media/no-media states.
-25. Keep internal SEO/research metadata out of the default player-facing UI.
-26. Apply technical SEO, media delivery checks, and third-party failure-state checks.
-27. Capture screenshot-backed Human Visual Review evidence with Game Recognition review.
-28. Reconcile plan vs implementation, including route media lifecycle.
-29. Run full QA.
-30. Close required `REVISE` items only after required fix, targeted re-review of changed evidence, `PASS`, and Human approval.
-31. Obtain explicit deployment approval.
-32. Inspect actual deployment state and final production-origin behavior.
-33. Create post-launch maintenance plan.
+22. Record the monetization decision and, when enabled, semantic placement/provider/multiplicity/locale intent.
+23. Stop for human planning review.
+24. Build the simplest sufficient fact layer.
+25. Draft/implement approved pages and approved media/no-media states.
+26. Keep internal SEO/research metadata out of the default player-facing UI.
+27. Apply technical SEO, media delivery checks, and third-party failure-state checks.
+28. Capture screenshot-backed Human Visual Review evidence with Game Recognition review and conditional Human Ads Review.
+29. Reconcile plan vs implementation, including route media lifecycle and semantic monetization intent where applicable.
+30. Run full QA.
+31. Close required `REVISE` items only after required fix, targeted re-review of changed evidence, `PASS`, and Human approval.
+32. Obtain explicit deployment approval.
+33. Inspect actual deployment state, final production-origin behavior, and ordinary-browser provider behavior where it matters.
+34. Create post-launch maintenance plan.
 
 ## Competitive Coverage Gate
 
@@ -354,7 +361,8 @@ Produce:
 16. Media Plan
 17. `docs/MEDIA_DECISION_TABLE.md`
 18. visual debt / no-media exceptions
-19. `CURRENT_STATUS.md`
+19. monetization decision and, when enabled, semantic placement/provider/multiplicity/locale intent
+20. `CURRENT_STATUS.md`
 
 Then stop for human planning approval.
 
@@ -375,4 +383,5 @@ Do not say “the site is complete” until:
 11. intended runtime/version contract is recorded and actual build/release runtime evidence matches it or the mismatch is explicitly approved;
 12. deployment state is verified from evidence;
 13. final production-origin preflight passes for canonical, sitemap, robots sitemap reference, placeholder/example domains, custom-domain vs `vercel.app` canonical, apex/www choice, redirects, and live production behavior;
-14. `CURRENT_STATUS.md` reflects remaining blockers.
+14. disabled/deferred/unconfigured monetization has zero ad-specific output, or enabled monetization has reconciled placement evidence and Human Ads Review;
+15. `CURRENT_STATUS.md` reflects remaining blockers.

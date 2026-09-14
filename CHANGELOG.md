@@ -1,5 +1,30 @@
 # Changelog
 
+## 2.6.3
+
+Bounded SOP implementation based on frozen `GAME_SOP_v2.6.2` provenance. The current methodology authority is `docs/NEW_GAME_SITE_SOP_v2.6.3.md`; V2.6.3 has not been declared released, tagged, or frozen.
+
+### Added
+
+- Provider-neutral separation of provider configuration/bootstrap from semantic placement responsibility.
+- Stable semantic-anchor and qualitative homepage primary-ad guidance without pixel or screen-depth rules.
+- Hard zero-output behavior for disabled/unconfigured placements and provider-contract-based multiple-slot/key safety.
+- Known-dimension responsive reservation and layered ad-adjacent layout diagnostics.
+- Separate `requested`, `rendered`, and `viewable` evidence meanings.
+- `PROVIDER/ENVIRONMENT CHECK REQUIRED` and `HUMAN_BROWSER_CHECK_REQUIRED` review classifications.
+- A conditional Human Ads Review checklist inside existing Human Visual/Release evidence, including desktop/mobile and locale-semantic review.
+- Public/private provider configuration boundary and concise SEO/UX non-regression principles.
+
+### Preserved
+
+- All unrelated V2.6.2 methodology, including Runtime Page Inventory, media lifecycle, evidence build, Pagefind, source/reviewer capability distinctions, Human Visual ownership, release workflow, and Stable Core / Flexible Edge.
+- Provider registry, orchestration/plugin frameworks, analytics/backend/dashboard/database, A/B or automatic optimization, automatic provider switching, bid/account/API management, provider-specific frameworks, page-type policy engine, ad DSL, numeric placement thresholds, mandatory second slot, new ads lifecycle states, and runtime observability API remain non-goals.
+
+### Packaging
+
+- Renamed the sole current SOP authority from `docs/NEW_GAME_SITE_SOP_v2.6.2.md` to `docs/NEW_GAME_SITE_SOP_v2.6.3.md`; V2.6.2 history remains available through Git.
+- Updated existing README, manifest, execution, QA, Human evidence, and onboarding conventions without adding a governance entrypoint or archive duplicate.
+
 ## 2.6.2
 
 Narrow SOP contract release based on frozen `GAME_SOP_v2.6.1` provenance.

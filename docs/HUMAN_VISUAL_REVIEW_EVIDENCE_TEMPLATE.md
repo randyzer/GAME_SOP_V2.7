@@ -107,6 +107,30 @@ Required questions:
 - Third-party fallback state:
 - Large local video warnings:
 
+## Human Ads Review (Conditional)
+
+Complete this subsection when monetization is enabled or a release claim depends on provider delivery. Otherwise record `Not applicable — monetization disabled/deferred/unconfigured` and verify zero ad-specific output in QA. This subsection reuses the existing Human Visual/Release outcome; it does not create an ads lifecycle state.
+
+- Applicable and reason:
+- Planned semantic placement intent:
+- Observed placement(s) by page/locale:
+- Provider/project multiplicity evidence:
+- Desktop placement/layout/obstruction result:
+- Mobile placement/layout/obstruction result:
+- Blank/dark-region diagnostic result and owning layer:
+- Known-dimension reservation / layout-shift result:
+- Ordinary-browser provider check required/performed:
+- `REQUESTED` evidence and method:
+- `RENDERED` evidence and method:
+- `VIEWABLE` evidence, meaningful viewport condition, and method:
+- Provider/environment classification, if unresolved: `PROVIDER/ENVIRONMENT CHECK REQUIRED` / `HUMAN_BROWSER_CHECK_REQUIRED` / N/A
+- Equivalent-locale semantic intent result and documented exceptions:
+- Private credential / internal workflow-language check:
+- SEO/UX regression check:
+- Evidence / notes:
+
+Do not infer `RENDERED` from a request or `VIEWABLE` from render. An automation error is not production-delivery proof; preserve the limitation and require an ordinary-browser check when the claim matters.
+
 ## Final Human Decision
 
 - Overall status: PASS / CONDITIONAL PASS / BLOCKED

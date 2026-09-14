@@ -1,4 +1,4 @@
-# QA Checklist — v2.6.2
+# QA Checklist — v2.6.3
 
 ## Purpose
 
@@ -156,6 +156,28 @@ A successful build is necessary but not sufficient.
 - [ ] First-viewport recognition, template residue, rhythm, media/no-media lifecycle state, and mobile ordering are recorded
 - [ ] Human accepted any remaining visual/media debt
 
+## Monetization / Ads QA (Conditional)
+
+If monetization is disabled, deferred, or unconfigured:
+
+- [ ] Generated output contains no ad wrapper, provider container, reserved ad space, provider script/bootstrap, or provider request reference
+
+If monetization is enabled:
+
+- [ ] Provider-specific configuration/bootstrap/markup is separate from semantic page placement
+- [ ] Where applicable, placements normally attach to stable semantic content anchors; project/provider-specific exceptions are allowed when deviations are intentional and reviewable rather than accidental; any homepage primary placement is reviewed in whole-page context rather than against a universal pixel or screen-depth rule
+- [ ] Known or reasonably predictable dimensions reserve appropriate responsive space; unknown dimensions do not create a fabricated large blank region
+- [ ] Provider slot/key/container/script reuse matches documented provider/project multiplicity rules
+- [ ] Public slot identity is allowed by the provider contract and no private API key, admin token, account secret, or credential reaches browser/public output
+- [ ] Ad output does not obscure core/SEO content, cause accidental `noindex`, block navigation, create severe layout breakage, or cause uncontrolled horizontal overflow
+- [ ] An apparent blank/dark region was diagnosed in order: slot count, provider container, wrapper, CSS spacing/size/background, parent layout, then provider/request/environment
+- [ ] `requested`, `rendered`, and `viewable` are recorded as separate evidence claims
+- [ ] Automation/provider failure is not reported as ordinary-browser or production delivery failure without supporting evidence
+- [ ] `PROVIDER/ENVIRONMENT CHECK REQUIRED` and `HUMAN_BROWSER_CHECK_REQUIRED` are used only as review/handoff classifications, not lifecycle states
+- [ ] Existing Human Visual/Release evidence contains the Human Ads Review result for placement, obstruction, desktop/mobile layout, blank regions, provider rendering where material, locale-semantic consistency, multiplicity, and obvious UX regression
+
+Static/CI checks own deterministic structure, disabled absence, duplication, and output safety. Ordinary-browser provider delivery and lived placement quality remain Human review concerns where automation cannot establish them.
+
 ## Player-Facing UX QA
 
 - [ ] Public pages lead with player questions/tasks
@@ -291,4 +313,8 @@ Launch is blocked by:
 - missing required Pagefind artifacts, unknown/unsupported Pagefind structure, or unproven optional-artifact reference safety;
 - normalized contract-required Pagefind payload above 800,000 B;
 - evidence output treated as final, evidence marker retained in canonical output, or Human Visual `PASS` inferred by automation;
+- disabled/deferred/unconfigured monetization leaves ad-specific DOM, layout, script, or request residue;
+- provider and placement responsibilities are conflated, private credentials reach public output, or slot/key/script multiplicity is assumed without provider/project support;
+- enabled monetization lacks required Human Ads Review, obstructs core content/navigation, or has a severe unexplained layout region;
+- `requested`, `rendered`, or `viewable` is overclaimed, or automation failure is mislabeled as production-delivery proof;
 - material mismatch between approved Site Structure/Navigation and actual implementation.

@@ -1,4 +1,4 @@
-# New Game Site Fast-Build SOP v2.6.2
+# New Game Site Fast-Build SOP v2.6.3
 
 ## Goal
 
@@ -24,7 +24,7 @@ For very new games, keyword tools are often incomplete. Architecture should be d
 
 ## Protected Methodology Boundaries
 
-v2.6.2 preserves the v2.6.1 Stable Core and adds narrow Pagefind payload and fresh visual evidence-generation contracts without replacing the workflow.
+v2.6.3 preserves the v2.6.2 Stable Core and adds a bounded, provider-neutral monetization and ad-placement methodology without replacing the workflow.
 
 Preserve:
 
@@ -50,6 +50,133 @@ Do not add:
 - generalized transport engines;
 - reviewer orchestration engines;
 - media DAM/CMS/database requirements.
+
+## Monetization / Ad Placement Contract
+
+Monetization needs a placement and verification contract because technical integration alone does not prove a useful result:
+
+```text
+AD CODE EXISTS
+!=
+AD IS RENDERED
+!=
+AD IS VIEWABLE
+```
+
+A site may load provider code while monetization remains ineffective because placement, layout, provider delivery, or viewport visibility is poor. This contract defines methodology and review evidence only; exact formats, counts, dimensions, and positions remain project decisions. It is not a revenue-optimization guide.
+
+Before implementation, decide whether monetization is `DISABLED`, `DEFERRED`, or `ENABLED`. A deferred decision records an owner or reason and keeps ad-specific output absent. Advertising configuration and placement do not belong in Runtime Page Inventory or the media lifecycle authority.
+
+### Provider and Placement Responsibilities
+
+These responsibilities must remain separate:
+
+- **Provider responsibility** owns provider-specific script, configuration, bootstrap, markup, and public provider slot identity where applicable.
+- **Placement responsibility** owns where an ad appears in page composition and its semantic relationship to surrounding content.
+
+Pages or page-family composition should normally attach placements to stable semantic content anchors. Conceptual identifiers may include `home-primary`, `article-after-intro`, `article-mid-content`, or `before-footer`; these are examples, not a required universal enum, page-type policy engine, placement DSL, framework component, or pixel-offset contract.
+
+### Hard Contracts
+
+1. **Responsibility separation:** provider configuration/bootstrap/markup and semantic page placement must not be conflated.
+2. **Literal disabled absence:** a disabled or unconfigured placement produces no ad-specific output.
+
+   ```text
+   disabled
+   → no ad wrapper
+   → no provider container
+   → no reserved ad space
+   → no provider request
+   ```
+
+   This is a framework outcome, not prescribed implementation syntax.
+3. **Public/private boundary:** a public provider slot identifier may be client-visible when provider design requires it. Private API keys, admin tokens, account secrets, and credentials must never enter browser or other public output.
+4. **Multiple-slot/key safety:** do not assume that one provider slot, key, container identity, or script instance may be duplicated across placements. The provider contract and project configuration must establish whether reuse is allowed, independent identity is required, and simultaneous instances are supported.
+5. **Layout safety:** when creative dimensions are known or reasonably predictable, reserve appropriate responsive space to reduce layout shift without overlap or uncontrolled horizontal overflow. When dimensions are unknown, do not invent a large universal blank region.
+6. **Evidence terminology:** `requested`, `rendered`, and `viewable` are separate claims; no earlier claim proves a later one.
+7. **Capability distinction:** automation or reviewer-environment failure alone is not proof of ordinary-browser or production delivery failure.
+8. **Diagnostic order:** verify DOM and layout layers before attributing an apparent region to an ad slot or provider.
+9. **Conditional Human gate:** when monetization is enabled, production approval requires the lightweight Human Ads Review inside the existing Human Visual/Release methodology.
+
+Ads must not obscure or hide core or SEO content, cause accidental `noindex`, block navigation, create severe layout breakage, create uncontrolled horizontal overflow, or unintentionally duplicate provider scripts.
+
+### Soft Guidance
+
+- A homepage primary monetization placement should normally attach to a stable content anchor and appear materially earlier than terminal/footer inventory.
+- `before-footer` may be useful as supplemental inventory; it should not normally be the only primary homepage placement.
+- Equivalent page types across locales should normally preserve the same semantic monetization intent. Language length and layout may change pixel offset or viewport depth, and documented locale-specific exceptions are allowed.
+- Desktop and mobile should be reviewed in whole-page context for placement sense, obstruction, blank regions, and layout stability.
+- Not every project, page type, page, or locale needs an ad. Exact ad count, format, dimensions, anchors, and positions remain project/provider decisions.
+
+These points are guidance, not universal build rules or exact screen-depth thresholds.
+
+### Requested / Rendered / Viewable
+
+- **REQUESTED:** a provider request was initiated.
+- **RENDERED:** actual creative or ad content was rendered into the page.
+- **VIEWABLE:** the creative entered a meaningful viewport condition.
+
+```text
+requested
+!=
+rendered
+!=
+viewable
+```
+
+Record only the claim supported by the observed evidence and note the method or limitation where relevant. V2.6.3 defines no standard event API, analytics implementation, timer, or universal viewability threshold.
+
+### Ad-Adjacent Layout Diagnostics
+
+An ad-looking empty region is not proof that an ad slot exists:
+
+```text
+AN AD-LOOKING EMPTY REGION
+!=
+PROOF THAT AN AD SLOT EXISTS
+```
+
+Inspect in this order:
+
+1. confirm the actual semantic ad-slot count;
+2. inspect the provider container, instance identity, and actual child content;
+3. inspect the semantic wrapper, visibility, reservation, and computed size;
+4. inspect adjacent margin, padding, gap, min-height, aspect ratio, background, overflow, and pseudo-elements;
+5. inspect the owning parent section/layout and neighboring content/footer relationship;
+6. inspect provider request/response, account/domain/inventory state, browser extensions, automation, region/network, and ordinary-browser behavior.
+
+Use these descriptive review classifications when evidence requires them:
+
+- `PROVIDER/ENVIRONMENT CHECK REQUIRED` — provider delivery, inventory, account/domain, region, network, automation, or reviewer environment needs further verification.
+- `HUMAN_BROWSER_CHECK_REQUIRED` — an ordinary logged-in or normal browser check is needed to settle a material provider-delivery claim.
+
+For example, an automated browser may receive `403`, a provider may block automation, a reviewer environment may not reach the provider, inventory may be unavailable, or region/referrer behavior may differ. Preserve the evidence and classification. `AUTOMATION FAILURE != PRODUCTION DELIVERY FAILURE`. These classifications are handoff signals, not lifecycle states.
+
+### Human Ads Review
+
+Human Ads Review is a conditional checklist within the existing Human Visual/Release evidence. It is not a new phase, lifecycle table, persistent state, database, or ads state machine.
+
+When applicable, inspect:
+
+- whether placement is sensible in whole-page context;
+- whether core content, SEO content, navigation, controls, or footer are obstructed;
+- whether desktop and mobile layout are acceptable;
+- whether any blank or dark ad-sized region has an explained owner;
+- whether known-format reservation is reasonable and layout shift risk is controlled;
+- whether an ordinary browser can render provider creative when provider verification matters;
+- whether `requested`, `rendered`, and `viewable` evidence is recorded separately without overclaiming;
+- whether equivalent locale pages preserve semantic placement intent, allowing different absolute depth;
+- whether ad count and slot/key/script multiplicity match the approved provider/project contract;
+- whether public output avoids private credentials and internal workflow language;
+- whether there is any obvious SEO or UX regression.
+
+Record the checklist evidence and outcome in the existing Human Visual Review / Human Release artifacts. If provider availability remains inconclusive while structure and layout pass, retain the applicable provider/environment or Human-browser classification; do not convert uncertainty into either approval or a deterministic build failure.
+
+### Non-Goals
+
+V2.6.3 does not introduce a provider registry, multi-provider orchestration, provider plugin framework, analytics backend, dashboard, database, A/B testing, automatic optimization, automatic provider switching, bid management, provider account management, provider API integration, provider-specific framework, page-type policy engine, ad DSL, hardcoded screen-depth threshold, mandatory second slot, new ads lifecycle state machine, or standard runtime observability API.
+
+The SOP does not specify Astro component filenames, TypeScript interfaces, Starter file structure, prop names, CSS implementation, provider script code, or analytics hooks. Those are Starter or project implementation concerns.
 
 ---
 
@@ -747,6 +874,7 @@ Review:
 - no-media rationale where applicable
 - high-priority unresolved media recovery/waiver decisions
 - visual debt/defer list
+- monetization decision (`DISABLED`, `DEFERRED`, or `ENABLED`), semantic placement intent, provider/config boundary, multiplicity evidence, and any locale exception
 - data gaps
 - media availability
 - visual direction
@@ -1036,6 +1164,8 @@ A smaller launch may be acceptable, but a materially under-covered launch must b
 
 Implementation must follow approved visual identity, route media decisions, no-media rationales, and visual debt limits. Do not let generic Starter residue become the public identity.
 
+If monetization is adopted, implementation must also follow the Monetization / Ad Placement Contract: page composition expresses semantic placement, the project edge owns provider specifics, and disabled/deferred/unconfigured placements remain literally absent. The SOP does not prescribe the implementation mechanism.
+
 Site chrome assets are not page content media.
 
 Examples of site chrome:
@@ -1108,6 +1238,7 @@ QA now includes:
 - visual identity;
 - visual richness;
 - media richness;
+- conditional monetization structure, layout, delivery evidence, and Human Ads Review;
 - player-facing UX;
 - planning-to-implementation reconciliation;
 - performance;
@@ -1145,6 +1276,8 @@ Evidence output carries the machine-readable marker `dist/EVIDENCE_BUILD_NOT_FIN
 After implementation and content/media integration, before final release reconciliation, capture current rendered evidence in `HUMAN_VISUAL_REVIEW_EVIDENCE.md`.
 
 Human owns Visual `PASS`. Evidence-generation success does not alter or replace this authority.
+
+When monetization is enabled or a release claim depends on provider delivery, include Human Ads Review in this same evidence artifact. Automation may verify structure and layout, but automation failure does not prove ordinary-browser or production delivery failure.
 
 Minimum representative evidence:
 
@@ -1227,6 +1360,10 @@ Actual need/candidate/rights/human-decision/integration/visual-gate states
 Human Visual Review evidence
 vs
 Current rendered output
+
+Approved semantic monetization intent and provider/multiplicity boundary
+vs
+Actual placement, output, and Human Ads Review evidence
 ```
 
 Unexpected shrinkage is a release issue, even if the build passes.
@@ -1274,6 +1411,7 @@ After deployment:
 
 - inspect actual provider target/state;
 - verify routes/assets/canonical/robots/sitemap/responsive behavior;
+- when monetization provider verification matters, recheck ordinary-browser delivery without conflating `requested`, `rendered`, and `viewable`;
 - classify Preview vs Production from evidence.
 
 Do not infer deployment state from command name.
@@ -1329,7 +1467,7 @@ A lightweight production health check after launch is recommended when operation
 
 ---
 
-# Final v2.6.2 Principle
+# Final v2.6.3 Principle
 
 For new-game sites:
 
