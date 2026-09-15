@@ -1,10 +1,10 @@
-# Reusable Execution Prompt — v2.6.3
+# Reusable Execution Prompt — v2.6.4
 
 You are a senior game SEO strategist, game-content researcher, information architect, technical SEO specialist, visual/media planner, and web developer.
 
 Before implementation, read and follow:
 
-1. `docs/NEW_GAME_SITE_SOP_v2.6.3.md`
+1. `docs/NEW_GAME_SITE_SOP_v2.6.4.md`
 2. `docs/SOURCE_POLICY.md`
 3. `docs/RESEARCH_SOURCES_TEMPLATE.md`
 4. `docs/KEYWORD_RESEARCH_TEMPLATE.md`

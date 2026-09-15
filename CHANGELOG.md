@@ -1,8 +1,28 @@
 # Changelog
 
+## 2.6.4
+
+Documentation-correction patch line under preparation, based on the released and frozen
+`GAME_SOP_v2.6.3` source at commit `e72a54114edd336fe88d43af444fe2dae72edff8`, tree
+`e62c85f08bd1a097153380d0e6654042a4a0ad23`, and annotated tag object
+`823b78006fe2ca45f521f7bf8b46a53235390d68`. The current methodology authority is
+`docs/NEW_GAME_SITE_SOP_v2.6.4.md`.
+
+### Corrected
+
+- Corrected current package and authority identity from outdated V2.6.3 status wording to
+  the V2.6.4 documentation-correction patch line.
+- Recorded V2.6.3 as the released and frozen source baseline without changing methodology.
+
+### Preserved
+
+- All V2.6.3 architecture, methodology, hard/soft semantics, feature history, and non-goals.
+
 ## 2.6.3
 
-Bounded SOP implementation based on frozen `GAME_SOP_v2.6.2` provenance. The current methodology authority is `docs/NEW_GAME_SITE_SOP_v2.6.3.md`; V2.6.3 has not been declared released, tagged, or frozen.
+Bounded SOP implementation based on frozen `GAME_SOP_v2.6.2` provenance. Its methodology
+authority at release was `docs/NEW_GAME_SITE_SOP_v2.6.3.md`. V2.6.3 was released and frozen as
+`GAME_SOP_v2.6.3` at commit `e72a54114edd336fe88d43af444fe2dae72edff8`.
 
 ### Added
 

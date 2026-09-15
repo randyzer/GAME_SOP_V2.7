@@ -1,4 +1,4 @@
-# QA Checklist — v2.6.3
+# QA Checklist — v2.6.4
 
 ## Purpose
 

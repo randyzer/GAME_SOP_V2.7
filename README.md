@@ -1,11 +1,14 @@
-# GAME_SOP V2.6.3 — New Game Wiki Production SOP
+# GAME_SOP V2.6.4 — New Game Wiki Production SOP
 
 A reusable production framework for researching, planning, building, launching, and maintaining SEO-first websites for newly released games.
 
-This repository is the current implementation-stage `GAME_SOP V2.6.3` package. The current
-methodology authority is explicitly named
-`docs/NEW_GAME_SITE_SOP_v2.6.3.md`. V2.6.2 remains the frozen source baseline
-and its prior authority remains available through Git history. V2.6.1 implementation evidence is
+This repository is the current `GAME_SOP V2.6.4` documentation-correction patch line under
+preparation. The current methodology authority is explicitly named
+`docs/NEW_GAME_SITE_SOP_v2.6.4.md`. V2.6.3 is the released and frozen source baseline at tag
+`GAME_SOP_v2.6.3`, commit `e72a54114edd336fe88d43af444fe2dae72edff8`, tree
+`e62c85f08bd1a097153380d0e6654042a4a0ad23`, and annotated tag object
+`823b78006fe2ca45f521f7bf8b46a53235390d68`; its prior authority remains available through Git
+history. V2.6.1 implementation evidence is
 historical provenance archived under `archive/v2.6.1/`; V2.6 artifacts remain under `archive/v2.6/`.
 None of these historical materials competes with the current authority.
 
@@ -74,7 +77,7 @@ Do not manually maintain a second Page Inventory with competing publication stat
 ├── game.config.example.json
 ├── 新手必读.md
 └── docs/
-    ├── NEW_GAME_SITE_SOP_v2.6.3.md
+    ├── NEW_GAME_SITE_SOP_v2.6.4.md
     ├── EXECUTION_PROMPT.md
     ├── PROJECT_BRIEF_TEMPLATE.md
     ├── RESEARCH_SOURCES_TEMPLATE.md
