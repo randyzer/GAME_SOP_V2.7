@@ -1,4 +1,4 @@
-# New Game Site Fast-Build SOP v2.6.4
+# New Game Site Fast-Build SOP v2.6.5
 
 ## Goal
 
@@ -1467,7 +1467,7 @@ A lightweight production health check after launch is recommended when operation
 
 ---
 
-# Final v2.6.4 Principle
+# Final v2.6.5 Principle
 
 For new-game sites:
 

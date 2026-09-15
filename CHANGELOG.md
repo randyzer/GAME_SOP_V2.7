@@ -1,11 +1,32 @@
 # Changelog
 
+## 2.6.5
+
+Lifecycle-state corrective patch based on the released and frozen `GAME_SOP_v2.6.4`
+source at tag `GAME_SOP_v2.6.4`, commit
+`b8c6f0ef7545635ec57bc3809b233b0945ce1918`, tree
+`a24ddd5218c1269db257927bfcc202515d94647f`, and annotated tag object
+`4a74ae78e5e9a567b3da5f964a4ab3b6012a7a98`. The methodology authority defined by this
+version is `docs/NEW_GAME_SITE_SOP_v2.6.5.md`. Release status is determined by the
+repository's authoritative Git refs and annotated release tag, not by lifecycle prose in this
+document.
+
+### Corrected
+
+- Removed mutable current release-lifecycle claims from active normative documentation.
+- Advanced package and authority identity to V2.6.5 without changing methodology.
+
+### Preserved
+
+- All V2.6.4 architecture, methodology, hard/soft semantics, feature history, and non-goals.
+
 ## 2.6.4
 
-Documentation-correction patch line under preparation, based on the released and frozen
-`GAME_SOP_v2.6.3` source at commit `e72a54114edd336fe88d43af444fe2dae72edff8`, tree
-`e62c85f08bd1a097153380d0e6654042a4a0ad23`, and annotated tag object
-`823b78006fe2ca45f521f7bf8b46a53235390d68`. The current methodology authority is
+Documentation-correction release based on the released and frozen `GAME_SOP_v2.6.3`
+source. V2.6.4 was released as tag `GAME_SOP_v2.6.4` at commit
+`b8c6f0ef7545635ec57bc3809b233b0945ce1918`, tree
+`a24ddd5218c1269db257927bfcc202515d94647f`, and annotated tag object
+`4a74ae78e5e9a567b3da5f964a4ab3b6012a7a98`. Its methodology authority at release was
 `docs/NEW_GAME_SITE_SOP_v2.6.4.md`.
 
 ### Corrected

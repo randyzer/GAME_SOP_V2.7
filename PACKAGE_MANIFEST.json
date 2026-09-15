@@ -1,13 +1,13 @@
 {
-  "package": "GAME_SOP_v2.6.4",
-  "current_methodology_authority": "docs/NEW_GAME_SITE_SOP_v2.6.4.md",
-  "authority_note": "This manifest describes the current V2.6.4 documentation-correction patch line under preparation, based on the released and frozen V2.6.3 source. Prior SOP authorities remain available through Git history; archived V2.6.1 implementation evidence and V2.6 artifacts are historical provenance, not current methodology authority.",
+  "package": "GAME_SOP_v2.6.5",
+  "current_methodology_authority": "docs/NEW_GAME_SITE_SOP_v2.6.5.md",
+  "authority_note": "This manifest defines the V2.6.5 lifecycle-state corrective patch line based on the released and frozen V2.6.4 source. Release status is determined by the repository's authoritative Git refs and annotated release tag, not by lifecycle prose in this manifest. Prior SOP authorities remain available through Git history; archived V2.6.1 implementation evidence and V2.6 artifacts are historical provenance, not current methodology authority.",
   "based_on": {
-    "repository": "https://github.com/randyzer/GAME_SOP_2.6.3.git",
-    "tag": "GAME_SOP_v2.6.3",
-    "commit": "e72a54114edd336fe88d43af444fe2dae72edff8",
-    "tree": "e62c85f08bd1a097153380d0e6654042a4a0ad23",
-    "annotated_tag_object": "823b78006fe2ca45f521f7bf8b46a53235390d68"
+    "repository": "https://github.com/randyzer/GAME_SOP_2.6.4.git",
+    "tag": "GAME_SOP_v2.6.4",
+    "commit": "b8c6f0ef7545635ec57bc3809b233b0945ce1918",
+    "tree": "a24ddd5218c1269db257927bfcc202515d94647f",
+    "annotated_tag_object": "4a74ae78e5e9a567b3da5f964a4ab3b6012a7a98"
   },
   "historical_change_plan": "archive/v2.6/V2.6_CHANGE_PROPOSAL_V0.2.md",
   "files": [
@@ -26,7 +26,7 @@
     "docs/HUMAN_VISUAL_REVIEW_EVIDENCE_TEMPLATE.md",
     "docs/KEYWORD_RESEARCH_TEMPLATE.md",
     "docs/MEDIA_DECISION_TABLE_TEMPLATE.md",
-    "docs/NEW_GAME_SITE_SOP_v2.6.4.md",
+    "docs/NEW_GAME_SITE_SOP_v2.6.5.md",
     "docs/P0_P1_P2_TEMPLATE.md",
     "docs/PAGE_INVENTORY_TEMPLATE.md",
     "docs/PATCH_MAINTENANCE_SOP.md",
