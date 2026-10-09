@@ -19,6 +19,23 @@
 - Actual build/release runtime evidence:
 - Runtime mismatch:
 
+## V2.7 Capability Evidence / Acceptance Status
+
+- Actual artifact and canonical Contract identities:
+- Evidence index kind (WS01_EVIDENCE_INDEX is not a frozen release baseline):
+- Per-capability scope/source/build and applicability decision:
+- Implementation independently accepted:
+- Evidence observed (NOT_RUN/PENDING/OBSERVED/UNVERIFIED):
+- verifiedOutcome (null or Contract §W outcome; non-OBSERVED requires null):
+- Independent Verification Owner/reviewer/date/refs:
+- Current Human Content/Visual/Ads/Release decisions:
+- REF-A/REF-B/REF-C deterministic suite status:
+- PROJECT-* real-adoption status (cannot substitute REF suite):
+- Historical PASS vs newer BLOCK/PENDING conflicts and required re-review:
+- Approved P2/NIT exceptions / expiry / owner / acknowledgment:
+
+Implementation ACCEPT, evidence observed, verified outcome and Human release are distinct. No build/test count or historical report fills current PASS automatically. Keep earlier records; a current unresolved null outcome cannot satisfy a release Gate. Visual-source and media lifecycle states retain their original separate meanings.
+
 ## Current Phase
 
 - [ ] Opportunity validation

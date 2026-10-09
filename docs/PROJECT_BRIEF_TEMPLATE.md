@@ -9,6 +9,21 @@
 - Master Prompt version:
 - Project repository:
 
+## V2.7 Canonical and Actual Artifact Identity
+
+- Stage: WS-01 candidate / independently accepted candidate / assembled validation / release (record actual stage):
+- SOP candidate root + sourceBaselineCommit/sourceBaselineTree + working-tree file-hash manifest:
+- Prompt candidate root + sourceBaselineCommit/sourceBaselineTree + working-tree file-hash manifest:
+- Starter actual repository/commit/tree/runtime evidence (accepted A3 is not a V2.7 release):
+- Canonical productContractVersion/capabilityRegistryVersion/canonicalPath/sha256/owningArtifact:
+- Project/config/assets/build identities and review scope:
+- Capability Evidence records and independent Verification Owner decisions:
+- REF-A/REF-B/REF-C suite evidence:
+- PROJECT-WOG/PROJECT-BOMBFARM/PROJECT-TASK-GUIDE real-adoption evidence:
+- Known mismatches/conflicts and owner/required re-review:
+
+Visual Evidence status below is the existing visual-source namespace (VERIFIED/OBSERVED/DERIVED/UNAVAILABLE/INTENTIONALLY UNUSED), not capability evidenceStatus. Neither implies media rights approval or final release acceptance. See CAPABILITY_EVIDENCE_TEMPLATE_V2.7.md and the bound normative Contract.
+
 ## Game
 
 - Game name:

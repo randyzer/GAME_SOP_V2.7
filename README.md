@@ -1,4 +1,35 @@
-# GAME_SOP V2.6.5 — New Game Wiki Production SOP
+# GAME_SOP_V2.7 — Candidate
+
+## V2.7 GitHub checkout
+
+- SOP: [randyzer/GAME_SOP_2.7](https://github.com/randyzer/GAME_SOP_2.7)
+- Master Prompt: [randyzer/GAME_CODEX_MASTER_PROMPT_V2.7](https://github.com/randyzer/GAME_CODEX_MASTER_PROMPT_V2.7)
+- Starter: [randyzer/GAME_SITE_STARTER_BASED_gamesop2.7](https://github.com/randyzer/GAME_SITE_STARTER_BASED_gamesop2.7)
+
+Clone the three repositories into the same parent directory using these local
+names. The SOP GitHub name follows the existing `GAME_SOP_2.6.5` convention;
+its explicit local name preserves the sibling paths used by Starter and Prompt.
+
+```sh
+git clone https://github.com/randyzer/GAME_SOP_2.7.git GAME_SOP_V2.7
+git clone https://github.com/randyzer/GAME_CODEX_MASTER_PROMPT_V2.7.git GAME_CODEX_MASTER_PROMPT_V2.7
+git clone https://github.com/randyzer/GAME_SITE_STARTER_BASED_gamesop2.7.git GAME_SITE_STARTER_BASED_gamesop2.7
+```
+
+Cross-repository relative document links assume this local layout. Use the SOP
+GitHub link above when reading it online. These repositories publish the V2.7
+Candidate source; pushing commits does not grant product or release acceptance.
+
+Status: normative foundation candidate; independent WS-01 acceptance is recorded separately. V2.7 implementation, reference suites, real adoption and release are incomplete. This is not the final assembly/delivery package.
+
+Current methodology: [NEW_GAME_SITE_SOP_v2.7.md](docs/NEW_GAME_SITE_SOP_v2.7.md). Sole requirement authority: [COMMERCIAL_GAME_SITE_PRODUCT_CONTRACT_V2.7.md](docs/COMMERCIAL_GAME_SITE_PRODUCT_CONTRACT_V2.7.md). Evidence method: [CAPABILITY_EVIDENCE_TEMPLATE_V2.7.md](docs/CAPABILITY_EVIDENCE_TEMPLATE_V2.7.md). [PACKAGE_MANIFEST.json](PACKAGE_MANIFEST.json) binds exact canonical hash/path/version/owner and candidate lineage.
+
+SourceBaselineCommit: `9a13b7314b9cb102b0c440d9677ab22400109e8f`; sourceBaselineTree: `e485499deac3dafea83391000d9cfa6e37d4a0c3`. These baseline identities describe the inherited local V2.6.5 source; the selected publication commit and any subsequent working-tree hashes identify the current Candidate. Historical released V2.6.4 Git refs remain in manifest based_on as predecessor provenance, not a V2.7 release assertion. Old method and archive are preserved.
+
+REF-A/REF-B/REF-C deterministic fixtures and PROJECT-WOG/PROJECT-BOMBFARM/PROJECT-TASK-GUIDE real adoption are separate required evidence groups. Current evidence collection does not manufacture final capability outcomes or Human approvals. Prompt references this SOP; Starter implements its subset. No second Registry or hidden template-only authority is required to interpret the contract.
+
+## Inherited production guide (historical version paragraphs retained)
+
 
 A reusable production framework for researching, planning, building, launching, and maintaining SEO-first websites for newly released games.
 

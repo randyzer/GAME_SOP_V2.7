@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — V2.7 Candidate / WS-01
+
+- Migrate the unchanged 41-row/16-column Registry into one SOP-owned canonical Contract.
+- Add evidence workflow/outcome identity and honest history/conflict methods.
+- Separate deterministic REF fixtures and real PROJECT adoption; update precise package/Prompt references.
+- Candidate acceptance is recorded separately; no Starter behavior, runtime dependency or release change.
+
 ## 2.6.5
 
 Lifecycle-state corrective patch based on the released and frozen `GAME_SOP_v2.6.4`
